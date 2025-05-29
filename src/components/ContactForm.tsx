@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
-import { Phone, Mail, Clock, Gift } from 'lucide-react';
+import { Gift, CheckCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 export const ContactForm = () => {
@@ -52,7 +52,7 @@ export const ContactForm = () => {
             Запишитесь на пробный урок!
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Первый урок - бесплатно! Сделайте вклад в будущее вашего ребенка!
+            Первый урок - бесплатно! Проведем диагностику уровня и ответим на все вопросы!
           </p>
         </div>
 
@@ -140,13 +140,13 @@ export const ContactForm = () => {
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Дополнительные вопросы
+                    Вопросы и пожелания
                   </label>
                   <Textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Расскажите об уровне английского ребенка, пожеланиях или вопросах..."
+                    placeholder="Расскажите об уровне английского ребенка, ваших вопросах или пожеланиях..."
                     rows={4}
                     className="border-gray-300"
                   />
@@ -166,31 +166,30 @@ export const ContactForm = () => {
             <Card className="border-0 bg-white/10 backdrop-blur-md text-white">
               <CardContent className="p-6">
                 <div className="flex items-center gap-4 mb-4">
-                  <Phone className="w-6 h-6" />
-                  <h4 className="text-lg font-semibold">Свяжитесь с нами</h4>
+                  <CheckCircle className="w-6 h-6" />
+                  <h4 className="text-lg font-semibold">Что включает пробный урок</h4>
                 </div>
-                <p className="text-white/90">+7 (999) 123-45-67</p>
+                <ul className="text-white/90 space-y-2">
+                  <li>• Диагностика уровня английского</li>
+                  <li>• Знакомство с форматом занятий</li>
+                  <li>• Ответы на все ваши вопросы</li>
+                  <li>• Рекомендации по обучению</li>
+                </ul>
               </CardContent>
             </Card>
 
             <Card className="border-0 bg-white/10 backdrop-blur-md text-white">
               <CardContent className="p-6">
                 <div className="flex items-center gap-4 mb-4">
-                  <Mail className="w-6 h-6" />
-                  <h4 className="text-lg font-semibold">Email</h4>
+                  <Gift className="w-6 h-6" />
+                  <h4 className="text-lg font-semibold">Почему стоит попробовать</h4>
                 </div>
-                <p className="text-white/90">info@englishsummer.ru</p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 bg-white/10 backdrop-blur-md text-white">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-4 mb-4">
-                  <Clock className="w-6 h-6" />
-                  <h4 className="text-lg font-semibold">Время работы</h4>
-                </div>
-                <p className="text-white/90">Пн-Пт: 9:00 - 20:00</p>
-                <p className="text-white/90">Сб-Вс: 10:00 - 18:00</p>
+                <ul className="text-white/90 space-y-2">
+                  <li>• Убедитесь, что формат подходит</li>
+                  <li>• Познакомьтесь с преподавателем</li>
+                  <li>• Увидите реакцию ребенка</li>
+                  <li>• Получите честную оценку уровня</li>
+                </ul>
               </CardContent>
             </Card>
 
