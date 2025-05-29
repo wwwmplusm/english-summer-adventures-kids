@@ -156,7 +156,7 @@ export const ContactForm = () => {
                   type="submit" 
                   className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  Записаться на пробный урок!
+                  Записаться на бесплатный пробный урок
                 </Button>
               </form>
             </CardContent>
