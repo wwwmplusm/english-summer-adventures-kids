@@ -1,120 +1,65 @@
+
 import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Card, CardContent } from '@/components/ui/card';
-import { Monitor, Wifi, Headphones } from 'lucide-react';
 
 export const FAQ = () => {
   const faqs = [
     {
-      question: "Мой ребенок не сможет заниматься онлайн, ему скучно!",
-      answer: "Наши уроки насыщены активностями и сменой деятельности каждые 5-7 минут. Мы используем игры, песни, интерактивные задания - дети не успеют заскучать! Каждый урок - это маленькое приключение."
+      question: "Для какого возраста подходит курс?",
+      answer: "Курс разработан для детей 7-11 лет. Минимальные требования: знание алфавита, умение читать и писать на уровне 1 класса."
     },
     {
-      question: "Мой ребенок стесняется говорить на английском!",
-      answer: "Маленькие группы до 4 человек и дружелюбная атмосфера помогают преодолеть стеснение. Мы начинаем с простых фраз и постепенно развиваем уверенность. Ошибки - это часть обучения, и мы это подчеркиваем!"
+      question: "Можно ли вернуть деньги, если курс не подойдет?",
+      answer: "Да, мы предоставляем гарантию возврата в течение первых 2 занятий. Если курс не подойдет вашему ребенку, мы вернем 100% оплаченной суммы."
     },
     {
-      question: "Мой ребенок еще маленький, чтобы заниматься онлайн!",
-      answer: "Мы адаптировали все методики специально для возраста 7-11 лет. Короткие активности, яркие материалы, частая смена деятельности - все продумано для комфортного онлайн-обучения детей."
+      question: "Что если ребенок пропустит занятие?",
+      answer: "Все занятия записываются и остаются доступными в личном кабинете. Также возможны индивидуальные переносы занятий при предварительном уведомлении."
     },
     {
-      question: "Какой уровень английского нужен для участия?",
-      answer: "Для участия достаточно знания алфавита, базовых навыков чтения и письма на русском языке (программа 1 класса). Знание английского не требуется - мы начинаем с самых основ!"
+      question: "Какие технические требования?",
+      answer: "Нужен компьютер или планшет с камерой, микрофоном и стабильным интернетом (от 5 Мбит/с). Мы используем Zoom и Miro — все программы бесплатны."
     },
     {
-      question: "Сколько длится одно занятие?",
-      answer: "Каждое занятие длится 55 минут - оптимальное время для концентрации детей 7-11 лет. Урок включает разминку, основную часть с играми и активностями, и закрепление материала."
+      question: "Есть ли у вас образовательная лицензия?",
+      answer: "Да, у нас есть официальная образовательная лицензия. Все документы предоставляются по запросу."
     },
     {
-      question: "Что делать, если ребенок пропустил урок?",
-      answer: "Все занятия записываются! Вы всегда можете посмотреть пропущенный урок в удобное время. Также преподаватель даст краткую информацию перед следующим занятием."
-    },
-    {
-      question: "Получит ли ребенок сертификат об окончании курса?",
-      answer: "Да! По окончании интенсива каждый ребенок получает красочный сертификат с указанием пройденных тем и достигнутого уровня."
-    },
-    {
-      question: "Не уверены, подойдет ли такой формат?",
-      answer: "Запишитесь на ПРОБНЫЙ урок! Это бесплатно. Мы проведем диагностику уровня английского, покажем как проходят занятия, и вы сможете понять, подходит ли этот формат вашему ребенку."
-    },
-    {
-      question: "У нас есть дополнительные вопросы. Как их задать?",
-      answer: "Запишитесь на пробный урок через форму ниже и укажите ваши вопросы в комментариях. Мы обязательно все обсудим и ответим на все ваши вопросы!"
-    }
-  ];
-
-  const techRequirements = [
-    {
-      icon: Monitor,
-      title: "Устройство",
-      description: "Компьютер или планшет с камерой и микрофоном"
-    },
-    {
-      icon: Wifi,
-      title: "Интернет",
-      description: "Стабильное подключение для видеосвязи"
-    },
-    {
-      icon: Headphones,
-      title: "Поддержка",
-      description: "Поможем настроить все необходимое для занятий"
+      question: "Какие способы оплаты доступны?",
+      answer: "Принимаем оплату банковскими картами, через СБП, PayPal. Возможна рассрочка и оплата материнским капиталом."
     }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-orange-50 to-red-50">
+    <section className="py-20 bg-white" id="faq">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
-            Ответы на ваши вопросы
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+            Часто задаваемые вопросы
           </h2>
+          <p className="text-xl text-gray-600">
+            Ответы на популярные вопросы родителей
+          </p>
         </div>
 
-        <div className="max-w-4xl mx-auto mb-16">
+        <div className="max-w-4xl mx-auto">
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="bg-white border-0 rounded-lg shadow-lg animate-fade-in"
-                style={{animationDelay: `${index * 0.1}s`}}
+                className="border border-gray-200 rounded-lg px-6 shadow-sm hover:shadow-md transition-shadow"
               >
-                <AccordionTrigger className="px-6 py-4 text-left font-semibold text-gray-800 hover:no-underline">
+                <AccordionTrigger className="text-left font-semibold text-gray-800 hover:text-[#FF6B00] py-6">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="px-6 pb-4 text-gray-600 leading-relaxed">
+                <AccordionContent className="text-gray-600 leading-relaxed pb-6">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
         </div>
-
-        <Card className="bg-white border-0 shadow-xl animate-fade-in" style={{animationDelay: '0.4s'}}>
-          <CardContent className="p-8">
-            <h3 className="text-2xl font-bold mb-8 text-center bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
-              Техническая сторона
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              {techRequirements.map((req, index) => {
-                const Icon = req.icon;
-                return (
-                  <div key={index} className="text-center">
-                    <div className="bg-gradient-to-r from-orange-500 to-red-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h4 className="font-bold text-gray-800 mb-2">{req.title}</h4>
-                    <p className="text-gray-600">{req.description}</p>
-                  </div>
-                );
-              })}
-            </div>
-            <div className="text-center mt-8">
-              <p className="text-lg font-semibold text-gray-800 mb-2">Платформа: Zoom</p>
-              <p className="text-gray-600">Простая и надежная платформа для онлайн-занятий</p>
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </section>
   );

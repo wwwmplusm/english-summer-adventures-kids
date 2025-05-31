@@ -1,184 +1,110 @@
 
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Check, X, Monitor, Wifi, Headphones, Users, Clock, Globe } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Check, X } from 'lucide-react';
 
 export const ComparisonTable = () => {
-  const comparisonData = [
+  const features = [
     {
-      feature: "Размер группы",
-      onlineSchools: "15-20 детей",
-      tutors: "1 ребенок",
-      ourIntensive: "До 4 детей"
+      feature: 'Цена за 24 урока',
+      intensive: '29 990 ₽',
+      online: '36 000 ₽',
+      tutor: '36 000 ₽',
+      intensiveHighlight: true
     },
     {
-      feature: "Цена за занятие",
-      onlineSchools: "От 800₽",
-      tutors: "От 1500₽",
-      ourIntensive: "От 600₽"
+      feature: 'Геймификация',
+      intensive: true,
+      online: false,
+      tutor: false
     },
     {
-      feature: "Индивидуальный подход",
-      onlineSchools: "Ограничен",
-      tutors: "Максимальный",
-      ourIntensive: "Высокий"
+      feature: 'Командная динамика',
+      intensive: true,
+      online: false,
+      tutor: false
     },
     {
-      feature: "Групповое общение",
-      onlineSchools: "Есть",
-      tutors: "Отсутствует",
-      ourIntensive: "Есть"
+      feature: 'Гибкая оплата',
+      intensive: true,
+      online: false,
+      tutor: true
     },
     {
-      feature: "Игровой формат",
-      onlineSchools: "Ограничен",
-      tutors: "Зависит от репетитора",
-      ourIntensive: "Основа программы"
+      feature: 'Сертификат',
+      intensive: true,
+      online: true,
+      tutor: false
     },
     {
-      feature: "Запись уроков",
-      onlineSchools: "Не всегда",
-      tutors: "Редко",
-      ourIntensive: "Все занятия"
-    },
-    {
-      feature: "Техподдержка",
-      onlineSchools: "Базовая",
-      tutors: "Отсутствует",
-      ourIntensive: "Полная"
+      feature: 'Индивидуальный подход',
+      intensive: true,
+      online: false,
+      tutor: true
     }
   ];
 
-  const courseFormat = [
-    {
-      icon: Users,
-      title: "Формат занятий",
-      description: "Групповые онлайн-уроки до 4 человек"
-    },
-    {
-      icon: Clock,
-      title: "Длительность",
-      description: "55 минут - оптимально для детей 7-11 лет"
-    },
-    {
-      icon: Globe,
-      title: "Платформа",
-      description: "Zoom - простая и надежная"
+  const renderCell = (value: any, highlight = false) => {
+    if (typeof value === 'boolean') {
+      return value ? (
+        <Check className="w-6 h-6 text-green-500 mx-auto" />
+      ) : (
+        <X className="w-6 h-6 text-red-400 mx-auto" />
+      );
     }
-  ];
-
-  const techRequirements = [
-    {
-      icon: Monitor,
-      title: "Устройство",
-      description: "Компьютер или планшет с камерой и микрофоном"
-    },
-    {
-      icon: Wifi,
-      title: "Интернет",
-      description: "Стабильное подключение для видеосвязи"
-    },
-    {
-      icon: Headphones,
-      title: "Поддержка",
-      description: "Поможем настроить все необходимое"
-    }
-  ];
+    
+    return (
+      <span className={`font-semibold ${highlight ? 'text-[#FF6B00] text-lg' : ''}`}>
+        {value}
+      </span>
+    );
+  };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+    <section className="py-20 bg-gray-50" id="comparison">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-            Почему выбирают нас?
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+            Сравнение форматов обучения
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Сравните наш интенсив с другими вариантами обучения
+          <p className="text-xl text-gray-600">
+            Почему родители выбирают наш интенсив
           </p>
         </div>
 
-        <Card className="mb-16 border-0 shadow-xl animate-fade-in">
-          <CardContent className="p-8">
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow className="border-b-2">
-                    <TableHead className="font-bold text-gray-800 text-lg">Характеристики</TableHead>
-                    <TableHead className="font-bold text-gray-600 text-center">Другие онлайн школы</TableHead>
-                    <TableHead className="font-bold text-gray-600 text-center">Репетиторы</TableHead>
-                    <TableHead className="font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent text-center text-lg">
-                      Наш интенсив
-                    </TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {comparisonData.map((row, index) => (
-                    <TableRow key={index} className="hover:bg-gray-50">
-                      <TableCell className="font-semibold text-gray-800">{row.feature}</TableCell>
-                      <TableCell className="text-center text-gray-600">{row.onlineSchools}</TableCell>
-                      <TableCell className="text-center text-gray-600">{row.tutors}</TableCell>
-                      <TableCell className="text-center font-bold text-green-600 bg-green-50 rounded">
-                        {row.ourIntensive}
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          </CardContent>
-        </Card>
-
-        <div className="grid lg:grid-cols-2 gap-12">
-          <Card className="border-0 shadow-xl animate-fade-in" style={{animationDelay: '0.2s'}}>
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-8 text-center bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-                Формат курса
-              </h3>
-              <div className="space-y-6">
-                {courseFormat.map((item, index) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={index} className="flex items-center gap-4">
-                      <div className="bg-gradient-to-r from-green-500 to-blue-500 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-gray-800 mb-1">{item.title}</h4>
-                        <p className="text-gray-600">{item.description}</p>
-                      </div>
-                    </div>
-                  );
-                })}
+        <div className="max-w-5xl mx-auto">
+          <Card className="overflow-hidden shadow-2xl">
+            <CardHeader className="bg-gradient-to-r from-[#FF6B00] to-orange-500 text-white">
+              <div className="grid grid-cols-4 gap-4 text-center">
+                <div className="font-semibold">Характеристика</div>
+                <div className="relative">
+                  <Badge className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black text-xs">
+                    Best Value
+                  </Badge>
+                  <div className="font-bold mt-4">Наш интенсив</div>
+                  <div className="text-sm opacity-90">экономия 17%</div>
+                </div>
+                <div className="font-semibold">Онлайн-школы</div>
+                <div className="font-semibold">Репетиторы</div>
               </div>
-            </CardContent>
-          </Card>
-
-          <Card className="border-0 shadow-xl animate-fade-in" style={{animationDelay: '0.4s'}}>
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-8 text-center bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-                Технические требования
-              </h3>
-              <div className="space-y-6">
-                {techRequirements.map((req, index) => {
-                  const Icon = req.icon;
-                  return (
-                    <div key={index} className="flex items-center gap-4">
-                      <div className="bg-gradient-to-r from-green-500 to-blue-500 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-gray-800 mb-1">{req.title}</h4>
-                        <p className="text-gray-600">{req.description}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="mt-8 p-4 bg-blue-50 rounded-lg text-center">
-                <p className="text-lg font-semibold text-gray-800 mb-2">Мы используем Zoom</p>
-                <p className="text-gray-600">Простая и надежная платформа, знакомая большинству родителей</p>
-              </div>
+            </CardHeader>
+            <CardContent className="p-0">
+              {features.map((row, index) => (
+                <div 
+                  key={index} 
+                  className={`grid grid-cols-4 gap-4 p-4 text-center items-center ${
+                    index % 2 === 0 ? 'bg-white' : 'bg-gray-50'
+                  }`}
+                >
+                  <div className="font-medium text-left">{row.feature}</div>
+                  <div className="bg-orange-50 rounded-lg p-3">
+                    {renderCell(row.intensive, row.intensiveHighlight)}
+                  </div>
+                  <div>{renderCell(row.online)}</div>
+                  <div>{renderCell(row.tutor)}</div>
+                </div>
+              ))}
             </CardContent>
           </Card>
         </div>

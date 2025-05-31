@@ -1,27 +1,64 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Hero } from '@/components/Hero';
-import { Features } from '@/components/Features';
-import { SummerProgram } from '@/components/SummerProgram';
 import { ComparisonTable } from '@/components/ComparisonTable';
-import { Program } from '@/components/Program';
-import { FAQ } from '@/components/FAQ';
+import { ProgramTimeline } from '@/components/ProgramTimeline';
+import { Methodology } from '@/components/Methodology';
 import { Testimonials } from '@/components/Testimonials';
-import { ContactForm } from '@/components/ContactForm';
+import { Pricing } from '@/components/Pricing';
+import { FAQ } from '@/components/FAQ';
+import { DiagnosticForm } from '@/components/DiagnosticForm';
+import { FinalCTA } from '@/components/FinalCTA';
 import { Footer } from '@/components/Footer';
+import { StickyHeader } from '@/components/StickyHeader';
+import { BottomBar } from '@/components/BottomBar';
 
 const Index = () => {
+  useEffect(() => {
+    // VK Retarget pixel
+    (window as any).VK = (window as any).VK || {};
+    (window as any).VK.Retargeting = (window as any).VK.Retargeting || {};
+    (window as any).VK.Retargeting.Init("VK-RTRG-XXXXXX-XXXXX");
+    (window as any).VK.Retargeting.Hit();
+
+    // Yandex Metrica
+    (window as any).ym = (window as any).ym || function(a: any, b: any, c: any, d: any) {
+      ((window as any).ym.a = (window as any).ym.a || []).push(arguments);
+    };
+    (window as any).ym.l = 1 * new Date().getTime();
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://mc.yandex.ru/metrika/tag.js';
+    document.head.appendChild(script);
+    
+    // Initialize Yandex Metrica
+    (window as any).ym(88888888, 'init', {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true
+    });
+
+    // Track page view
+    (window as any).ym(88888888, 'hit', window.location.href);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
-      <Hero />
-      <Features />
-      <SummerProgram />
-      <ComparisonTable />
-      <Program />
-      <FAQ />
-      <Testimonials />
-      <ContactForm />
+    <div className="min-h-screen bg-white">
+      <StickyHeader />
+      <main>
+        <Hero />
+        <ComparisonTable />
+        <ProgramTimeline />
+        <Methodology />
+        <Testimonials />
+        <Pricing />
+        <FAQ />
+        <DiagnosticForm />
+        <FinalCTA />
+      </main>
       <Footer />
+      <BottomBar />
     </div>
   );
 };
