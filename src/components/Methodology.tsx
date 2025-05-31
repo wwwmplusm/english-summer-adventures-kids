@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Gamepad2, PresentationChart, MessageCircle, Award } from 'lucide-react';
+import { Gamepad2, Presentation, MessageCircle, Award } from 'lucide-react';
 
 export const Methodology = () => {
   const features = [
@@ -11,7 +11,7 @@ export const Methodology = () => {
       description: "Обучение через игру, квесты и интерактивные задания. Мой ребенок даже не заметит, как изучает английский!"
     },
     {
-      icon: PresentationChart,
+      icon: Presentation,
       title: "Проект-финал",
       description: "Каждый ребенок создает и презентует собственный проект на английском языке. Развиваем уверенность в себе."
     },
