@@ -1,116 +1,68 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Star } from 'lucide-react';
 
 export const Testimonials = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
   const testimonials = [
     {
-      parentName: "Елена Васильева",
-      childName: "Маша",
-      childAge: 8,
-      text: "Дочка с нетерпением ждала каждого урока! Преподаватели создали такую дружескую атмосферу, что стеснительная Маша стала активно участвовать в играх и даже шутить на английском.",
+      name: "Анна К.",
+      child: "Дочь 9 лет",
+      text: "После курса дочка перестала стесняться говорить на английском. Теперь даже пытается переводить мультфильмы!",
       rating: 5
     },
     {
-      parentName: "Анна Петрова",
-      childName: "Артем", 
-      childAge: 9,
-      text: "Сын начал использовать английские слова в повседневной речи уже после второй недели! Методика действительно работает — никакой зубрёжки, только игры и живое общение.",
+      name: "Михаил С.",
+      child: "Сын 8 лет",
+      text: "Отличная альтернатива скучным урокам! Сын ждёт каждое занятие и рассказывает новые слова всей семье.",
       rating: 5
     },
     {
-      parentName: "Мария Козлова",
-      childName: "София",
-      childAge: 7,
-      text: "Очень довольна форматом малых групп. София получает достаточно внимания преподавателя, но при этом учится работать в команде. Летние каникулы прошли с огромной пользой!",
+      name: "Елена Р.",
+      child: "Дочь 10 лет",
+      text: "Удобный формат для работающих родителей. Никуда не нужно ехать, а результат заметен уже через месяц.",
       rating: 5
     },
     {
-      parentName: "Ирина Смирнова",
-      childName: "Денис",
-      childAge: 10,
-      text: "Денис стал намного увереннее в себе. На итоговом празднике он рассказывал стихотворение на английском — я была в восторге! Планируем продолжать обучение осенью.",
+      name: "Дмитрий В.",
+      child: "Сын 11 лет",
+      text: "Преподаватели находят подход к каждому ребёнку. Сын стал более уверенным и начал интересоваться языками.",
       rating: 5
     }
   ];
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gradient-to-br from-yellow-50 to-orange-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-            Отзывы родителей
+            Что говорят родители
           </h2>
-          <p className="text-xl text-gray-600">Что говорят о нас семьи наших учеников</p>
+          <p className="text-xl text-gray-600">
+            Реальные отзывы о результатах наших учеников
+          </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            <Card className="border-0 shadow-2xl">
-              <CardContent className="p-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {testimonials.map((testimonial, index) => (
+            <Card 
+              key={index}
+              className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+            >
+              <CardContent className="p-6">
                 <div className="flex mb-4">
-                  {[...Array(testimonials[currentSlide].rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-700 mb-6 text-lg italic leading-relaxed">
-                  "{testimonials[currentSlide].text}"
-                </p>
-                <div className="flex items-center">
-                  <div className="w-16 h-16 bg-gradient-to-r from-[#FF6B00] to-orange-500 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-white font-bold text-xl">
-                      {testimonials[currentSlide].parentName.split(' ').map(n => n[0]).join('')}
-                    </span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-800 text-lg">{testimonials[currentSlide].parentName}</p>
-                    <p className="text-gray-600">
-                      Мама {testimonials[currentSlide].childName} ({testimonials[currentSlide].childAge} лет)
-                    </p>
-                  </div>
+                <p className="text-gray-700 mb-4 leading-relaxed">"{testimonial.text}"</p>
+                <div className="border-t pt-4">
+                  <p className="font-semibold text-gray-800">{testimonial.name}</p>
+                  <p className="text-sm text-gray-600">{testimonial.child}</p>
                 </div>
               </CardContent>
             </Card>
-
-            <Button
-              onClick={prevSlide}
-              variant="outline"
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 rounded-full w-12 h-12 p-0 bg-white shadow-lg"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </Button>
-            <Button
-              onClick={nextSlide}
-              variant="outline"
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 rounded-full w-12 h-12 p-0 bg-white shadow-lg"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </Button>
-          </div>
-
-          <div className="flex justify-center mt-6 space-x-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  index === currentSlide ? 'bg-[#FF6B00]' : 'bg-gray-300'
-                }`}
-              />
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </section>

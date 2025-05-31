@@ -12,8 +12,11 @@ export const ComparisonTable = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
             Почему это лучший летний вариант
           </h2>
-          <p className="text-xl text-[#FF6B00] font-semibold mb-8">
+          <p className="text-xl text-[#FF6B00] font-semibold mb-4">
             Интенсив = каникулы с пользой, а не скучные репетиторы
+          </p>
+          <p className="text-lg text-gray-700 font-medium bg-blue-50 rounded-lg p-4 max-w-2xl mx-auto">
+            Курс подходит только детям освоившим 1 класс школьной программы
           </p>
         </div>
 
@@ -37,6 +40,7 @@ export const ComparisonTable = () => {
                 <div className="font-medium text-left">Цена за урок</div>
                 <div className="bg-orange-50 rounded-lg p-3">
                   <span className="font-bold text-[#FF6B00] text-xl">1 500 ₽</span>
+                  <div className="text-xs text-gray-500">при оплате всего курса</div>
                 </div>
                 <div className="text-gray-600">2 000 ₽</div>
               </div>

@@ -7,8 +7,8 @@ export const Methodology = () => {
   const methods = [
     {
       icon: MessageCircle,
-      title: "Communicative CLT",
-      description: "Общение с первого урока — никаких скучных правил, только живая речь и диалоги"
+      title: "Разговорная практика с первых минут",
+      description: "Дети учатся говорить, а не зубрить правила"
     },
     {
       icon: Gamepad2,
@@ -17,8 +17,8 @@ export const Methodology = () => {
     },
     {
       icon: Users,
-      title: "TPR-движение",
-      description: "Изучаем через движения и жесты — запоминается в 3 раза лучше"
+      title: "Учимся в движении (TPR)",
+      description: "Команды типа \"Jump! Clap!\" делаем руками и ногами — язык запоминается телом"
     },
     {
       icon: BookOpen,
@@ -32,7 +32,7 @@ export const Methodology = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-            Наша методика
+            Как мы учим
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
             Современные методы преподавания для максимального результата

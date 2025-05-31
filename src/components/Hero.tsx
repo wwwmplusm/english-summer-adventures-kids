@@ -48,7 +48,7 @@ export const Hero = () => {
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                <span className="font-medium">Возраст 7-11 лет</span>
+                <span className="font-medium">Возраст 8-11 лет</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
@@ -57,13 +57,19 @@ export const Hero = () => {
             </div>
           </div>
 
+          <div className="bg-gradient-to-r from-orange-100 to-yellow-100 rounded-2xl p-6 mb-8">
+            <p className="text-lg text-gray-700 font-medium">
+              15-мин вступительный урок-игра и персональный план занятий на всё лето — бесплатно и без обязательств
+            </p>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button 
               onClick={handleDiagnostic}
               className="btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white px-8 py-4 text-lg font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300"
               size="lg"
             >
-              Получить бесплатную 15-минутную диагностику уровня
+              Получить бесплатный урок + индивидуальный план на лето
             </Button>
             <Button 
               onClick={scrollToProgram}
@@ -71,7 +77,7 @@ export const Hero = () => {
               className="border-2 border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300"
               size="lg"
             >
-              Узнать программу на 8 недель
+              Смотреть программу
             </Button>
           </div>
 

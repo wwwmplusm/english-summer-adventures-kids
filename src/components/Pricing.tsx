@@ -55,9 +55,9 @@ export const Pricing = () => {
               </CardHeader>
               <CardContent className="p-8">
                 <div className="text-center mb-6">
-                  <div className="text-4xl font-bold text-[#FF6B00] mb-2">35 990 ₽</div>
+                  <div className="text-4xl font-bold text-[#FF6B00] mb-2">29 990 ₽</div>
                   <div className="text-gray-600">≈ 1 500 ₽/урок</div>
-                  <div className="text-sm text-gray-500 line-through">было: 42 000 ₽</div>
+                  <div className="text-sm text-gray-500 line-through">было: 36 000 ₽</div>
                 </div>
                 
                 <div className="space-y-3 mb-8">
@@ -91,7 +91,7 @@ export const Pricing = () => {
                     variant="outline"
                     className="btn-primary w-full border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white py-3 rounded-lg font-semibold"
                   >
-                    Диагностика
+                    Бесплатный урок + план
                   </Button>
                 </div>
               </CardContent>
@@ -129,13 +129,13 @@ export const Pricing = () => {
                   onClick={handleDiagnostic}
                   className="btn-primary w-full bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 rounded-lg font-semibold text-lg"
                 >
-                  Диагностика
+                  Бесплатный урок + план
                 </Button>
               </CardContent>
             </Card>
           </div>
 
-          <div className="bg-gradient-to-r from-green-100 to-blue-100 rounded-2xl p-6 text-center">
+          <div className="bg-gradient-to-r from-green-100 to-blue-100 rounded-2xl p-6 text-center mb-4">
             <Badge className="bg-green-500 text-white text-lg font-bold px-4 py-2 mb-4">
               ЛУЧШИЙ ВЫБОР
             </Badge>
@@ -145,6 +145,10 @@ export const Pricing = () => {
             <p className="text-gray-700 text-lg">
               При оплате всего курса вы экономите 17% и получаете максимальный результат для вашего ребёнка
             </p>
+          </div>
+
+          <div className="text-center text-sm text-gray-500">
+            *Цена за урок при оплате всего курса целиком
           </div>
         </div>
       </div>

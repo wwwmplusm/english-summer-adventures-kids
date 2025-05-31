@@ -121,9 +121,9 @@ export const DiagnosticForm = () => {
                     <Input
                       id="age"
                       type="number"
-                      min="7"
+                      min="8"
                       max="11"
-                      placeholder="Например: 8"
+                      placeholder="Например: 9"
                       value={formData.age}
                       onChange={(e) => handleInputChange('age', e.target.value)}
                       className="mt-2 text-lg p-4"

@@ -21,7 +21,7 @@ export const BottomBar = () => {
         onClick={handleDiagnostic}
         className="btn-primary w-full bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 rounded-lg font-semibold text-lg"
       >
-        Записать ребёнка
+        Бесплатный урок + план
       </Button>
     </div>
   );
