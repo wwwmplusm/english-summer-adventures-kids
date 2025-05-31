@@ -15,32 +15,46 @@ import { BottomBar } from '@/components/BottomBar';
 
 const Index = () => {
   useEffect(() => {
-    // VK Retarget pixel
-    (window as any).VK = (window as any).VK || {};
-    (window as any).VK.Retargeting = (window as any).VK.Retargeting || {};
-    (window as any).VK.Retargeting.Init("VK-RTRG-XXXXXX-XXXXX");
-    (window as any).VK.Retargeting.Hit();
+    // VK Retarget pixel - with proper error handling
+    try {
+      (window as any).VK = (window as any).VK || {};
+      (window as any).VK.Retargeting = (window as any).VK.Retargeting || {};
+      
+      // Check if Init function exists before calling it
+      if (typeof (window as any).VK.Retargeting.Init === 'function') {
+        (window as any).VK.Retargeting.Init("VK-RTRG-XXXXXX-XXXXX");
+        (window as any).VK.Retargeting.Hit();
+      } else {
+        console.log('VK Retargeting not yet available');
+      }
+    } catch (error) {
+      console.log('VK Retargeting initialization error:', error);
+    }
 
-    // Yandex Metrica
-    (window as any).ym = (window as any).ym || function(a: any, b: any, c: any, d: any) {
-      ((window as any).ym.a = (window as any).ym.a || []).push(arguments);
-    };
-    (window as any).ym.l = 1 * new Date().getTime();
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://mc.yandex.ru/metrika/tag.js';
-    document.head.appendChild(script);
-    
-    // Initialize Yandex Metrica
-    (window as any).ym(88888888, 'init', {
-      clickmap: true,
-      trackLinks: true,
-      accurateTrackBounce: true,
-      webvisor: true
-    });
+    // Yandex Metrica - with proper error handling
+    try {
+      (window as any).ym = (window as any).ym || function(a: any, b: any, c: any, d: any) {
+        ((window as any).ym.a = (window as any).ym.a || []).push(arguments);
+      };
+      (window as any).ym.l = 1 * new Date().getTime();
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://mc.yandex.ru/metrika/tag.js';
+      document.head.appendChild(script);
+      
+      // Initialize Yandex Metrica
+      (window as any).ym(88888888, 'init', {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true
+      });
 
-    // Track page view
-    (window as any).ym(88888888, 'hit', window.location.href);
+      // Track page view
+      (window as any).ym(88888888, 'hit', window.location.href);
+    } catch (error) {
+      console.log('Yandex Metrica initialization error:', error);
+    }
   }, []);
 
   return (
