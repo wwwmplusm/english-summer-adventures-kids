@@ -9,38 +9,31 @@ export const Testimonials = () => {
 
   const testimonials = [
     {
-      parentName: "Елена Петрова",
+      parentName: "Елена Васильева",
       childName: "Маша",
       childAge: 8,
-      text: "Результат превзошел все ожидания! Маша теперь с удовольствием говорит на английском и даже учит младшего брата. Особенно понравилась игровая форма обучения.",
+      text: "Дочка с нетерпением ждала каждого урока! Преподаватели создали такую дружескую атмосферу, что стеснительная Маша стала активно участвовать в играх и даже шутить на английском.",
       rating: 5
     },
     {
-      parentName: "Анна Смирнова",
+      parentName: "Анна Петрова",
       childName: "Артем", 
       childAge: 9,
-      text: "Сын был очень стеснительным, но преподаватели создали такую дружелюбную атмосферу! Теперь он не боится говорить и даже поет английские песни.",
+      text: "Сын начал использовать английские слова в повседневной речи уже после второй недели! Методика действительно работает — никакой зубрёжки, только игры и живое общение.",
       rating: 5
     },
     {
-      parentName: "Ирина Козлова",
+      parentName: "Мария Козлова",
       childName: "София",
       childAge: 7,
-      text: "Очень довольна гибким расписанием и качеством обучения. София всегда ждала занятий с нетерпением! Сертификат теперь висит в рамочке в детской.",
+      text: "Очень довольна форматом малых групп. София получает достаточно внимания преподавателя, но при этом учится работать в команде. Летние каникулы прошли с огромной пользой!",
       rating: 5
     },
     {
-      parentName: "Михаил Васильев",
+      parentName: "Ирина Смирнова",
       childName: "Денис",
       childAge: 10,
-      text: "Интерактивный формат с Miro просто потрясающий! Денис говорит, что это лучшие уроки в его жизни. Планируем продолжить обучение осенью.",
-      rating: 5
-    },
-    {
-      parentName: "Ольга Николаева",
-      childName: "Алиса",
-      childAge: 8,
-      text: "Алиса стала намного увереннее в себе. Финальный проект-презентация был просто великолепен! Спасибо за профессиональный подход.",
+      text: "Денис стал намного увереннее в себе. На итоговом празднике он рассказывал стихотворение на английском — я была в восторге! Планируем продолжать обучение осенью.",
       rating: 5
     }
   ];
@@ -53,16 +46,8 @@ export const Testimonials = () => {
     setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
-  const schools = [
-    "Школа №1",
-    "Гимназия №5", 
-    "Олимпиада по английскому",
-    "Школа №12",
-    "Лицей №3"
-  ];
-
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
@@ -71,7 +56,7 @@ export const Testimonials = () => {
           <p className="text-xl text-gray-600">Что говорят о нас семьи наших учеников</p>
         </div>
 
-        <div className="max-w-4xl mx-auto mb-16">
+        <div className="max-w-4xl mx-auto">
           <div className="relative">
             <Card className="border-0 shadow-2xl">
               <CardContent className="p-8">
@@ -102,14 +87,14 @@ export const Testimonials = () => {
             <Button
               onClick={prevSlide}
               variant="outline"
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 rounded-full w-12 h-12 p-0"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 rounded-full w-12 h-12 p-0 bg-white shadow-lg"
             >
               <ChevronLeft className="w-6 h-6" />
             </Button>
             <Button
               onClick={nextSlide}
               variant="outline"
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 rounded-full w-12 h-12 p-0"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 rounded-full w-12 h-12 p-0 bg-white shadow-lg"
             >
               <ChevronRight className="w-6 h-6" />
             </Button>
@@ -124,17 +109,6 @@ export const Testimonials = () => {
                   index === currentSlide ? 'bg-[#FF6B00]' : 'bg-gray-300'
                 }`}
               />
-            ))}
-          </div>
-        </div>
-
-        <div className="text-center">
-          <h3 className="text-2xl font-bold mb-8 text-gray-800">Наши выпускники учатся в</h3>
-          <div className="flex flex-wrap justify-center gap-8 opacity-60">
-            {schools.map((school, index) => (
-              <div key={index} className="text-gray-600 font-medium text-lg">
-                {school}
-              </div>
             ))}
           </div>
         </div>

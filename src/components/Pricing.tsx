@@ -8,164 +8,144 @@ import { Check } from 'lucide-react';
 export const Pricing = () => {
   const handlePayment = (plan: string) => {
     const utmParams = new URLSearchParams(window.location.search).toString();
-    // Redirect to payment page with UTM parameters
     window.open(`/payment?plan=${plan}${utmParams ? `&${utmParams}` : ''}`, '_blank');
     
     // Analytics
     if (typeof window !== 'undefined') {
-      (window as any).ym?.(88888888, 'reachGoal', 'payment_click');
+      (window as any).ym?.(88888888, 'reachGoal', 'Purchase');
       (window as any).VK?.Retargeting?.Event('payment_click');
     }
   };
 
   const handleDiagnostic = () => {
     const utmParams = new URLSearchParams(window.location.search).toString();
-    const waMessage = `Диагностика${utmParams ? `?${utmParams}` : ''}`;
+    const waMessage = `Хочу на диагностику!${utmParams ? `?${utmParams}` : ''}`;
     window.open(`https://wa.me/79XXXXXXXXX?text=${encodeURIComponent(waMessage)}`, '_blank');
     
     // Analytics
     if (typeof window !== 'undefined') {
-      (window as any).ym?.(88888888, 'reachGoal', 'diagnostic_click_pricing');
-      (window as any).VK?.Retargeting?.Event('diagnostic_click');
+      (window as any).ym?.(88888888, 'reachGoal', 'Lead_Diagnosis');
+      (window as any).VK?.Retargeting?.Event('diagnosis_click');
     }
   };
 
-  const plans = [
-    {
-      id: 'full',
-      title: 'Весь курс',
-      price: '29 990',
-      originalPrice: '36 000',
-      savings: 'экономия 17%',
-      popular: true,
-      features: [
-        '24 живых занятия',
-        'Доступ к материалам',
-        'Сертификат',
-        'Поддержка в чате',
-        'Запись занятий'
-      ]
-    },
-    {
-      id: 'weekly',
-      title: 'По неделям',
-      price: '4 500',
-      period: '/ неделя',
-      features: [
-        '3 занятия в неделю',
-        'Доступ к материалам',
-        'Поддержка в чате'
-      ]
-    },
-    {
-      id: 'single',
-      title: 'По занятию',
-      price: '1 500',
-      period: '/ занятие',
-      features: [
-        'Разовое посещение',
-        'Доступ к материалам урока'
-      ]
-    }
-  ];
-
   return (
-    <section className="py-20 bg-gray-50" id="pricing">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50" id="pricing">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
             Тарифы
           </h2>
-          <p className="text-xl text-gray-600 mb-4">
+          <p className="text-xl text-gray-600">
             Выберите удобный способ оплаты
           </p>
-          <div className="bg-red-100 border border-red-300 rounded-lg p-4 max-w-md mx-auto">
-            <p className="text-red-700 font-semibold">
-              ⚡ Места заканчиваются — осталось 7 из 30
-            </p>
-          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {plans.map((plan) => (
-            <Card 
-              key={plan.id}
-              className={`relative border-0 shadow-xl hover:shadow-2xl transition-all duration-300 ${
-                plan.popular ? 'ring-2 ring-[#FF6B00] scale-105' : ''
-              }`}
-            >
-              {plan.popular && (
-                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#FF6B00] text-white px-4 py-1">
-                  Лучшее предложение
-                </Badge>
-              )}
-              
-              <CardHeader className="text-center pb-4">
-                <CardTitle className="text-2xl font-bold text-gray-800">
-                  {plan.title}
-                </CardTitle>
-                <div className="mt-4">
-                  <div className="flex items-center justify-center gap-2">
-                    <span className="text-4xl font-bold text-[#FF6B00]">
-                      {plan.price}
-                    </span>
-                    <span className="text-2xl text-gray-600">₽</span>
-                    {plan.period && (
-                      <span className="text-gray-500">{plan.period}</span>
-                    )}
-                  </div>
-                  {plan.originalPrice && (
-                    <div className="mt-2">
-                      <span className="text-gray-400 line-through text-lg">
-                        {plan.originalPrice} ₽
-                      </span>
-                      <Badge variant="secondary" className="ml-2 bg-green-100 text-green-700">
-                        {plan.savings}
-                      </Badge>
-                    </div>
-                  )}
-                </div>
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            {/* Весь курс */}
+            <Card className="border-0 shadow-2xl relative overflow-hidden">
+              <Badge className="absolute top-4 right-4 bg-green-500 text-white font-bold px-3 py-1">
+                ЭКОНОМИЯ 6 000 ₽
+              </Badge>
+              <CardHeader className="bg-gradient-to-r from-[#FF6B00] to-orange-500 text-white">
+                <CardTitle className="text-2xl font-bold">Весь курс</CardTitle>
+                <p className="text-white/90">24 урока, 8 недель</p>
+                <p className="text-sm text-white/80">скидка 17%</p>
               </CardHeader>
+              <CardContent className="p-8">
+                <div className="text-center mb-6">
+                  <div className="text-4xl font-bold text-[#FF6B00] mb-2">35 990 ₽</div>
+                  <div className="text-gray-600">≈ 1 500 ₽/урок</div>
+                  <div className="text-sm text-gray-500 line-through">было: 42 000 ₽</div>
+                </div>
+                
+                <div className="space-y-3 mb-8">
+                  <div className="flex items-center gap-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span className="text-gray-700">Максимальная экономия</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span className="text-gray-700">Гарантия результата</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span className="text-gray-700">Сертификат об окончании</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span className="text-gray-700">Возврат за неиспользованные уроки</span>
+                  </div>
+                </div>
 
-              <CardContent className="space-y-6">
-                <ul className="space-y-3">
-                  {plan.features.map((feature, index) => (
-                    <li key={index} className="flex items-center gap-3">
-                      <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="space-y-3 pt-4">
-                  {plan.id === 'full' ? (
-                    <>
-                      <Button 
-                        onClick={() => handlePayment(plan.id)}
-                        className="btn-secondary w-full bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 text-lg font-semibold"
-                      >
-                        Купить курс
-                      </Button>
-                      <Button 
-                        onClick={handleDiagnostic}
-                        variant="outline"
-                        className="btn-primary w-full border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white py-3"
-                      >
-                        Диагностика
-                      </Button>
-                    </>
-                  ) : (
-                    <Button 
-                      onClick={handleDiagnostic}
-                      className="btn-primary w-full bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 text-lg font-semibold"
-                    >
-                      Диагностика
-                    </Button>
-                  )}
+                <div className="space-y-3">
+                  <Button 
+                    onClick={() => handlePayment('full')}
+                    className="btn-secondary w-full bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 rounded-lg font-semibold text-lg"
+                  >
+                    Оплатить курс
+                  </Button>
+                  <Button 
+                    onClick={handleDiagnostic}
+                    variant="outline"
+                    className="btn-primary w-full border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white py-3 rounded-lg font-semibold"
+                  >
+                    Диагностика
+                  </Button>
                 </div>
               </CardContent>
             </Card>
-          ))}
+
+            {/* По неделям */}
+            <Card className="border-0 shadow-xl">
+              <CardHeader className="bg-gradient-to-r from-blue-500 to-purple-500 text-white">
+                <CardTitle className="text-2xl font-bold">По неделям</CardTitle>
+                <p className="text-white/90">3 урока</p>
+                <p className="text-sm text-white/80">гибко, оплачиваете каждую неделю</p>
+              </CardHeader>
+              <CardContent className="p-8">
+                <div className="text-center mb-6">
+                  <div className="text-4xl font-bold text-blue-600 mb-2">4 500 ₽</div>
+                  <div className="text-gray-600">за неделю (3 урока)</div>
+                </div>
+                
+                <div className="space-y-3 mb-8">
+                  <div className="flex items-center gap-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span className="text-gray-700">Гибкость оплаты</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span className="text-gray-700">Можно приостановить в любой момент</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Check className="w-5 h-5 text-green-500" />
+                    <span className="text-gray-700">Платите только за посещения</span>
+                  </div>
+                </div>
+
+                <Button 
+                  onClick={handleDiagnostic}
+                  className="btn-primary w-full bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 rounded-lg font-semibold text-lg"
+                >
+                  Диагностика
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="bg-gradient-to-r from-green-100 to-blue-100 rounded-2xl p-6 text-center">
+            <Badge className="bg-green-500 text-white text-lg font-bold px-4 py-2 mb-4">
+              ЛУЧШИЙ ВЫБОР
+            </Badge>
+            <h3 className="text-2xl font-bold text-gray-800 mb-2">
+              Весь курс = экономия 6 000 ₽
+            </h3>
+            <p className="text-gray-700 text-lg">
+              При оплате всего курса вы экономите 17% и получаете максимальный результат для вашего ребёнка
+            </p>
+          </div>
         </div>
       </div>
     </section>

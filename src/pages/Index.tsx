@@ -52,9 +52,17 @@ const Index = () => {
 
       // Track page view
       (window as any).ym(88888888, 'hit', window.location.href);
+
+      // Track View50 event after page load
+      setTimeout(() => {
+        (window as any).ym?.(88888888, 'reachGoal', 'View50');
+      }, 30000); // 30 seconds
     } catch (error) {
       console.log('Yandex Metrica initialization error:', error);
     }
+
+    // Add smooth scroll behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
   }, []);
 
   return (

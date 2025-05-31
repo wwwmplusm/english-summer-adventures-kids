@@ -2,7 +2,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Users, Calendar, Trophy } from 'lucide-react';
 
 export const FinalCTA = () => {
   const handlePayment = () => {
@@ -11,13 +10,13 @@ export const FinalCTA = () => {
     
     // Analytics
     if (typeof window !== 'undefined') {
-      (window as any).ym?.(88888888, 'reachGoal', 'payment_click_final');
+      (window as any).ym?.(88888888, 'reachGoal', 'Purchase');
       (window as any).VK?.Retargeting?.Event('payment_click');
     }
   };
 
   const handleTelegram = () => {
-    window.open('https://t.me/english_intensive_kids', '_blank');
+    window.open('https://t.me/english_intensive_kids_parents', '_blank');
     
     // Analytics
     if (typeof window !== 'undefined') {
@@ -27,38 +26,33 @@ export const FinalCTA = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 text-white">
+    <section className="py-20 bg-gradient-to-br from-[#FF6B00] via-orange-500 to-red-500 text-white">
       <div className="container mx-auto px-4">
         <Card className="max-w-4xl mx-auto border-0 bg-white/10 backdrop-blur-sm">
           <CardContent className="p-8 md:p-12 text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Готовы присоединиться?
+              Пока другие тратят лето впустую,
             </h2>
-            <p className="text-xl md:text-2xl mb-8 opacity-90">
-              Забронируйте место — группы заполняются быстро!
+            <h3 className="text-3xl md:text-4xl font-bold mb-8 text-yellow-200">
+              ваш ребёнок начинает говорить по-английски
+            </h3>
+            
+            <p className="text-xl md:text-2xl mb-12 opacity-90">
+              Не упустите возможность сделать это лето незабываемым и полезным!
             </p>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <div className="flex flex-col items-center">
-                <div className="bg-white/20 rounded-full p-4 mb-4">
-                  <Users className="w-8 h-8" />
-                </div>
-                <div className="text-2xl font-bold">7 из 30</div>
-                <div className="text-sm opacity-80">мест осталось</div>
+            <div className="grid md:grid-cols-3 gap-6 mb-12 text-center">
+              <div className="bg-white/20 rounded-lg p-6">
+                <div className="text-3xl font-bold mb-2">7 мест</div>
+                <div className="text-sm opacity-80">осталось в группах</div>
               </div>
-              <div className="flex flex-col items-center">
-                <div className="bg-white/20 rounded-full p-4 mb-4">
-                  <Calendar className="w-8 h-8" />
-                </div>
-                <div className="text-2xl font-bold">10 июня</div>
-                <div className="text-sm opacity-80">старт курса</div>
+              <div className="bg-white/20 rounded-lg p-6">
+                <div className="text-3xl font-bold mb-2">8 недель</div>
+                <div className="text-sm opacity-80">до свободного общения</div>
               </div>
-              <div className="flex flex-col items-center">
-                <div className="bg-white/20 rounded-full p-4 mb-4">
-                  <Trophy className="w-8 h-8" />
-                </div>
-                <div className="text-2xl font-bold">+2 уровня</div>
-                <div className="text-sm opacity-80">гарантированный результат</div>
+              <div className="bg-white/20 rounded-lg p-6">
+                <div className="text-3xl font-bold mb-2">6 000 ₽</div>
+                <div className="text-sm opacity-80">экономия при оплате курса</div>
               </div>
             </div>
 
@@ -66,7 +60,7 @@ export const FinalCTA = () => {
               <Button 
                 onClick={handlePayment}
                 size="lg"
-                className="btn-secondary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white px-8 py-4 text-xl font-bold rounded-lg shadow-xl hover:scale-105 transition-all duration-300"
+                className="btn-secondary bg-white text-[#FF6B00] hover:bg-gray-100 px-8 py-4 text-xl font-bold rounded-lg shadow-xl hover:scale-105 transition-all duration-300"
               >
                 Оплатить курс
               </Button>
@@ -74,14 +68,14 @@ export const FinalCTA = () => {
                 onClick={handleTelegram}
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-gray-800 px-8 py-4 text-xl font-semibold rounded-lg transition-all duration-300"
+                className="border-white text-white hover:bg-white hover:text-[#FF6B00] px-8 py-4 text-xl font-semibold rounded-lg transition-all duration-300"
               >
-                Подписаться на Telegram
+                Подписаться на Telegram для родителей
               </Button>
             </div>
 
-            <p className="mt-6 text-sm opacity-70">
-              🔥 Раннее бронирование до 1 июня — скидка 10%
+            <p className="mt-8 text-lg opacity-80">
+              🚀 Старт уже 10 июня — не опоздайте!
             </p>
           </CardContent>
         </Card>

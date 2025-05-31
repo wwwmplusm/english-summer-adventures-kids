@@ -1,149 +1,142 @@
 
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Calendar, BookOpen, Users, Trophy } from 'lucide-react';
+import { ChevronDown, ChevronRight } from 'lucide-react';
 
 export const ProgramTimeline = () => {
-  const [hoveredWeek, setHoveredWeek] = useState<number | null>(null);
+  const [openWeek, setOpenWeek] = useState<number | null>(null);
 
   const weeks = [
     {
       week: 1,
-      title: "Знакомство и основы",
-      topic: "Алфавит, числа, цвета",
-      details: "Интерактивные игры, командная работа, первые диалоги",
-      icon: BookOpen
+      title: "All About Me!",
+      vocabulary: "Имя, возраст, цвета, числа 1-10",
+      activity: "Игра 'Угадай, кто я?' с картинками",
+      grammar: "I am... / My name is..."
     },
     {
       week: 2,
-      title: "Семья и друзья",
-      topic: "Описание внешности, характер",
-      details: "Проектная работа: создание семейного древа",
-      icon: Users
+      title: "My Family & Friends",
+      vocabulary: "Семья, друзья, описание людей",
+      activity: "Семейное древо с фотографиями",
+      grammar: "This is my... / He/She is..."
     },
     {
       week: 3,
-      title: "Мой дом",
-      topic: "Комнаты, мебель, предлоги места",
-      details: "Виртуальная экскурсия по дому мечты",
-      icon: BookOpen
+      title: "My Toys",
+      vocabulary: "Игрушки, цвета, размеры",
+      activity: "Виртуальный магазин игрушек",
+      grammar: "I have... / I like..."
     },
     {
       week: 4,
-      title: "Еда и напитки",
-      topic: "Продукты, рецепты, культура питания",
-      details: "Кулинарное шоу на английском языке",
-      icon: BookOpen
+      title: "My House",
+      vocabulary: "Комнаты, мебель, предметы дома",
+      activity: "Виртуальная экскурсия по дому",
+      grammar: "There is/are... / Where is...?"
     },
     {
       week: 5,
-      title: "Животные",
-      topic: "Дикие и домашние животные, среда обитания",
-      details: "Создание презентации о любимом животном",
-      icon: BookOpen
+      title: "Animals",
+      vocabulary: "Животные, их звуки, места обитания",
+      activity: "Зоопарк с движениями и звуками",
+      grammar: "Animals can... / Where do they live?"
     },
     {
       week: 6,
-      title: "Путешествия",
-      topic: "Страны, транспорт, достопримечательности",
-      details: "Планирование виртуального путешествия",
-      icon: BookOpen
+      title: "Food I Like",
+      vocabulary: "Еда, напитки, вкусы",
+      activity: "Ресторан: заказываем и готовим",
+      grammar: "I like/don't like... / Can I have...?"
     },
     {
       week: 7,
-      title: "Хобби и спорт",
-      topic: "Увлечения, спортивные игры, досуг",
-      details: "Интервью о хобби одноклассников",
-      icon: BookOpen
+      title: "Clothes & Weather",
+      vocabulary: "Одежда, погода, времена года",
+      activity: "Модный показ по погоде",
+      grammar: "I'm wearing... / It's sunny/rainy..."
     },
     {
       week: 8,
-      title: "Итоговый проект",
-      topic: "Презентация финального проекта",
-      details: "Защита проекта, вручение сертификатов",
-      icon: Trophy
+      title: "My Day & Fun Activities",
+      vocabulary: "Время, действия, хобби",
+      activity: "Итоговый праздник-презентация достижений",
+      grammar: "I get up at... / I like to..."
     }
   ];
 
   return (
-    <section className="py-20 bg-white" id="program">
+    <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50" id="program">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-            Программа курса
+            План на 8 недель
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            8 недель структурированного обучения с проектной работой
+          <p className="text-xl text-gray-600">
+            Интерактивная программа: от знакомства до свободного общения
           </p>
-          <div className="flex flex-wrap justify-center gap-6 text-sm">
-            <div className="flex items-center gap-2 bg-blue-50 rounded-full px-4 py-2">
-              <Calendar className="w-4 h-4 text-blue-600" />
-              <span>Zoom + Miro интерактив</span>
-            </div>
-            <div className="flex items-center gap-2 bg-green-50 rounded-full px-4 py-2">
-              <Users className="w-4 h-4 text-green-600" />
-              <span>Живые занятия, без записей</span>
-            </div>
-            <div className="flex items-center gap-2 bg-purple-50 rounded-full px-4 py-2">
-              <Trophy className="w-4 h-4 text-purple-600" />
-              <span>Группа ≤ 10 детей</span>
-            </div>
-          </div>
         </div>
 
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#FF6B00] to-orange-300" />
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-[#FF6B00] hidden md:block"></div>
             
-            <div className="space-y-8">
-              {weeks.map((week, index) => {
-                const Icon = week.icon;
-                return (
-                  <div 
-                    key={week.week}
-                    className="relative flex items-start gap-6"
-                    onMouseEnter={() => setHoveredWeek(week.week)}
-                    onMouseLeave={() => setHoveredWeek(null)}
-                  >
-                    {/* Timeline dot */}
-                    <div className="relative z-10 flex-shrink-0">
-                      <div className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 ${
-                        hoveredWeek === week.week 
-                          ? 'bg-[#FF6B00] scale-110' 
-                          : 'bg-orange-100'
-                      }`}>
-                        <Icon className={`w-8 h-8 ${
-                          hoveredWeek === week.week ? 'text-white' : 'text-[#FF6B00]'
-                        }`} />
+            {weeks.map((week, index) => (
+              <div key={week.week} className="relative mb-8">
+                {/* Timeline dot */}
+                <div className="absolute left-6 w-4 h-4 bg-[#FF6B00] rounded-full border-4 border-white shadow-lg hidden md:block"></div>
+                
+                <Card 
+                  className="md:ml-16 border-0 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                  onClick={() => setOpenWeek(openWeek === week.week ? null : week.week)}
+                >
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <div className="bg-[#FF6B00] text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg">
+                          {week.week}
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold text-gray-800 mb-1">
+                            Неделя {week.week}
+                          </h3>
+                          <p className="text-[#FF6B00] font-semibold text-lg">
+                            {week.title}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="text-[#FF6B00]">
+                        {openWeek === week.week ? (
+                          <ChevronDown className="w-6 h-6" />
+                        ) : (
+                          <ChevronRight className="w-6 h-6" />
+                        )}
                       </div>
                     </div>
 
-                    {/* Content card */}
-                    <Card className={`flex-1 transition-all duration-300 hover:shadow-xl ${
-                      hoveredWeek === week.week ? 'transform -translate-y-2 shadow-2xl' : ''
-                    }`}>
-                      <CardContent className="p-6">
-                        <div className="flex items-start justify-between mb-4">
+                    {openWeek === week.week && (
+                      <div className="mt-6 pt-6 border-t border-gray-200 animate-fade-in">
+                        <div className="grid md:grid-cols-3 gap-4">
                           <div>
-                            <h3 className="text-xl font-bold text-gray-800 mb-2">
-                              Неделя {week.week}: {week.title}
-                            </h3>
-                            <p className="text-[#FF6B00] font-semibold">{week.topic}</p>
+                            <h4 className="font-semibold text-gray-800 mb-2">📚 Ключевая лексика</h4>
+                            <p className="text-gray-600 text-sm">{week.vocabulary}</p>
                           </div>
-                          <div className="bg-[#FF6B00] text-white text-sm font-bold px-3 py-1 rounded-full">
-                            3 занятия
+                          <div>
+                            <h4 className="font-semibold text-gray-800 mb-2">🎮 Игровая активность</h4>
+                            <p className="text-gray-600 text-sm">{week.activity}</p>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-gray-800 mb-2">📝 Грамматический фокус</h4>
+                            <p className="text-gray-600 text-sm">{week.grammar}</p>
                           </div>
                         </div>
-                        <p className="text-gray-600 leading-relaxed">
-                          {week.details}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                );
-              })}
-            </div>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
           </div>
         </div>
       </div>

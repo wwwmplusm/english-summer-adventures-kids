@@ -15,13 +15,13 @@ export const StickyHeader = () => {
 
   const handleDiagnostic = () => {
     const utmParams = new URLSearchParams(window.location.search).toString();
-    const waMessage = `Диагностика${utmParams ? `?${utmParams}` : ''}`;
+    const waMessage = `Хочу на диагностику!${utmParams ? `?${utmParams}` : ''}`;
     window.open(`https://wa.me/79XXXXXXXXX?text=${encodeURIComponent(waMessage)}`, '_blank');
     
     // Analytics
     if (typeof window !== 'undefined') {
-      (window as any).ym?.(88888888, 'reachGoal', 'diagnostic_click');
-      (window as any).VK?.Retargeting?.Event('diagnostic_click');
+      (window as any).ym?.(88888888, 'reachGoal', 'Lead_Diagnosis');
+      (window as any).VK?.Retargeting?.Event('diagnosis_header_click');
     }
   };
 
@@ -31,7 +31,7 @@ export const StickyHeader = () => {
     }`}>
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="font-bold text-xl text-gray-800">
-          English Intensive
+          <span className="text-[#FF6B00]">English</span> Intensive
         </div>
         <Button 
           onClick={handleDiagnostic}

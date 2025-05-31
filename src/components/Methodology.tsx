@@ -1,93 +1,77 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Gamepad2, Presentation, MessageCircle, Award } from 'lucide-react';
+import { MessageCircle, Gamepad2, Users, BookOpen } from 'lucide-react';
 
 export const Methodology = () => {
-  const features = [
-    {
-      icon: Gamepad2,
-      title: "Геймификация",
-      description: "Обучение через игру, квесты и интерактивные задания. Мой ребенок даже не заметит, как изучает английский!"
-    },
-    {
-      icon: Presentation,
-      title: "Проект-финал",
-      description: "Каждый ребенок создает и презентует собственный проект на английском языке. Развиваем уверенность в себе."
-    },
+  const methods = [
     {
       icon: MessageCircle,
-      title: "Живая обратная связь",
-      description: "Преподаватель работает с каждым ребенком индивидуально во время групповых занятий."
+      title: "Communicative CLT",
+      description: "Общение с первого урока — никаких скучных правил, только живая речь и диалоги"
     },
     {
-      icon: Award,
-      title: "Сертификат",
-      description: "По окончании курса каждый участник получает именной сертификат о прохождении интенсива."
+      icon: Gamepad2,
+      title: "Gamification",
+      description: "Wordwall, Kahoot, квесты и соревнования — учимся играя и соревнуясь"
+    },
+    {
+      icon: Users,
+      title: "TPR-движение",
+      description: "Изучаем через движения и жесты — запоминается в 3 раза лучше"
+    },
+    {
+      icon: BookOpen,
+      title: "Storytelling",
+      description: "Истории и сказки на английском — развиваем воображение и память"
     }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-            Наша методика и результат
+            Наша методика
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Уникальный подход, который делает изучение английского увлекательным и эффективным
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+            Современные методы преподавания для максимального результата
+          </p>
+          <p className="text-lg text-[#FF6B00] font-semibold">
+            Проектов и скучных презентаций нет — только живое общение и игры
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
+          {methods.map((method, index) => {
+            const Icon = method.icon;
             return (
               <Card 
                 key={index}
-                className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-fade-in bg-white"
-                style={{animationDelay: `${index * 0.1}s`}}
+                className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group"
               >
-                <CardContent className="p-6 text-center">
-                  <div className="bg-gradient-to-r from-[#FF6B00] to-orange-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CardContent className="p-6 text-center h-full flex flex-col">
+                  <div className="bg-gradient-to-r from-[#FF6B00] to-orange-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                     <Icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="font-bold text-gray-800 mb-3 text-lg">{feature.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                  <h3 className="font-bold text-gray-800 mb-3 text-lg">{method.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed flex-grow">{method.description}</p>
                 </CardContent>
               </Card>
             );
           })}
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Card className="border-0 shadow-2xl bg-gradient-to-r from-orange-100 to-red-100">
-            <CardContent className="p-8 text-center">
-              <h3 className="text-3xl font-bold mb-6 text-gray-800">
-                Результат: +2 уровня английского за 8 недель
-              </h3>
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h4 className="text-xl font-semibold mb-4 text-gray-700">До курса:</h4>
-                  <ul className="text-left space-y-2 text-gray-600">
-                    <li>• Знает алфавит и может читать</li>
-                    <li>• Стесняется говорить на английском</li>
-                    <li>• Ограниченный словарный запас</li>
-                    <li>• Боится делать ошибки</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-xl font-semibold mb-4 text-[#FF6B00]">После курса:</h4>
-                  <ul className="text-left space-y-2 text-gray-800">
-                    <li>• Свободно общается на базовые темы</li>
-                    <li>• Уверенно выступает перед группой</li>
-                    <li>• Активный словарь 300+ слов</li>
-                    <li>• Не боится экспериментировать с языком</li>
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="bg-gradient-to-r from-orange-100 to-yellow-100 rounded-2xl p-8">
+            <h3 className="text-2xl font-bold mb-4 text-gray-800">
+              ☀️ Летний формат = удовольствие от учёбы
+            </h3>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              Забудьте про домашние задания и зубрёжку! Ваш ребёнок будет с нетерпением ждать каждого урока, 
+              потому что мы превратили изучение английского в увлекательную летнюю игру.
+            </p>
+          </div>
         </div>
       </div>
     </section>
