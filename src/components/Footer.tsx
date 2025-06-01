@@ -1,29 +1,21 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
-
 export const Footer = () => {
   const handleDiagnostic = () => {
     const utmParams = new URLSearchParams(window.location.search).toString();
     const waMessage = `Хочу на диагностику!${utmParams ? `?${utmParams}` : ''}`;
     window.open(`https://wa.me/79XXXXXXXXX?text=${encodeURIComponent(waMessage)}`, '_blank');
-    
+
     // Analytics
     if (typeof window !== 'undefined') {
       (window as any).ym?.(88888888, 'reachGoal', 'Lead_Diagnosis');
       (window as any).VK?.Retargeting?.Event('diagnosis_footer_click');
     }
   };
-
-  return (
-    <footer className="bg-[#1C1C1E] text-white py-12">
+  return <footer className="bg-[#1C1C1E] text-white py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
-          <Button 
-            onClick={handleDiagnostic}
-            className="btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white px-8 py-4 text-lg font-bold rounded-lg shadow-xl"
-            size="lg"
-          >
+          <Button onClick={handleDiagnostic} className="btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white px-8 py-4 text-lg font-bold rounded-lg shadow-xl" size="lg">
             Записать ребёнка
           </Button>
         </div>
@@ -33,22 +25,12 @@ export const Footer = () => {
             <h3 className="font-bold text-lg mb-4 text-[#FF6B00]">Документы</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a 
-                  href="https://docs.google.com/document/d/1pdPEYcjPuQLpQOwVRgE2QwAnn0ylgeYz4oBiwmVFgwo/edit?usp=sharing" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:text-[#FF6B00] transition-colors"
-                >
+                <a href="https://docs.google.com/document/d/1pdPEYcjPuQLpQOwVRgE2QwAnn0ylgeYz4oBiwmVFgwo/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-[#FF6B00] transition-colors">
                   Публичная оферта
                 </a>
               </li>
               <li>
-                <a 
-                  href="https://docs.google.com/document/d/1vSm3Qa4KRj57nwiaGAovM57ltrvIZk46ywCoCTrnXok/edit?usp=sharing" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:text-[#FF6B00] transition-colors"
-                >
+                <a href="https://docs.google.com/document/d/1vSm3Qa4KRj57nwiaGAovM57ltrvIZk46ywCoCTrnXok/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-[#FF6B00] transition-colors">
                   Политика конфиденциальности
                 </a>
               </li>
@@ -62,7 +44,7 @@ export const Footer = () => {
               <p>Самозанятый (НПД, ФЗ-422)</p>
               <p>Режим работы — с 08:00 до 21:00 (МСК)</p>
               <p>E-mail: info@site.ru</p>
-              <p>Тел.: +7 ___ ___-__-__</p>
+              <p>Тел.: +7 996 669 78 97</p>
             </div>
           </div>
 
@@ -96,6 +78,5 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
