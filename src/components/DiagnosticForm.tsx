@@ -156,7 +156,7 @@ export const DiagnosticForm = () => {
                 disabled={!isFormValid()}
                 className="w-full mt-8 btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 text-lg font-bold"
               >
-                Получить бесплатный урок и персональный план
+                Получить бесплатный урок и план
               </Button>
             </CardContent>
           </Card>

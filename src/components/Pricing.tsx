@@ -46,17 +46,17 @@ export const Pricing = () => {
             {/* Весь курс */}
             <Card className="border-0 shadow-2xl relative overflow-hidden">
               <Badge className="absolute top-4 right-4 bg-green-500 text-white font-bold px-3 py-1">
-                ЭКОНОМИЯ 6 000 ₽
+                ЭКОНОМИЯ 8 000 ₽
               </Badge>
               <CardHeader className="bg-gradient-to-r from-[#FF6B00] to-orange-500 text-white">
                 <CardTitle className="text-2xl font-bold">Весь курс</CardTitle>
-                <p className="text-white/90">24 урока, 8 недель</p>
-                <p className="text-sm text-white/80">скидка 17%</p>
+                <p className="text-white/90">16 уроков (8 недель × 2)</p>
+                <p className="text-sm text-white/80">скидка 25%</p>
               </CardHeader>
               <CardContent className="p-8">
                 <div className="text-center mb-6">
-                  <div className="text-4xl font-bold text-[#FF6B00] mb-2">29 990 ₽</div>
-                  <div className="text-gray-600">1 250 ₽ за урок*</div>
+                  <div className="text-4xl font-bold text-[#FF6B00] mb-2">23 990 ₽</div>
+                  <div className="text-gray-600">1 490 ₽ за урок*</div>
                 </div>
                 
                 <div className="space-y-3 mb-8">
@@ -90,7 +90,7 @@ export const Pricing = () => {
                     variant="outline"
                     className="btn-primary w-full border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white py-3 rounded-lg font-semibold"
                   >
-                    Получить бесплатный урок и персональный план
+                    Получить бесплатный урок и план
                   </Button>
                 </div>
               </CardContent>
@@ -100,13 +100,13 @@ export const Pricing = () => {
             <Card className="border-0 shadow-xl">
               <CardHeader className="bg-gradient-to-r from-blue-500 to-purple-500 text-white">
                 <CardTitle className="text-2xl font-bold">По неделям</CardTitle>
-                <p className="text-white/90">3 урока</p>
+                <p className="text-white/90">2 урока</p>
                 <p className="text-sm text-white/80">гибко, оплачиваете каждую неделю</p>
               </CardHeader>
               <CardContent className="p-8">
                 <div className="text-center mb-6">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">4 500 ₽</div>
-                  <div className="text-gray-600">1 500 ₽ за урок</div>
+                  <div className="text-4xl font-bold text-blue-600 mb-2">3 990 ₽</div>
+                  <div className="text-gray-600">1 995 ₽ за урок</div>
                 </div>
                 
                 <div className="space-y-3 mb-8">
@@ -128,7 +128,7 @@ export const Pricing = () => {
                   onClick={handleDiagnostic}
                   className="btn-primary w-full bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 rounded-lg font-semibold text-lg"
                 >
-                  Получить бесплатный урок и персональный план
+                  Получить бесплатный урок и план
                 </Button>
               </CardContent>
             </Card>
@@ -139,15 +139,15 @@ export const Pricing = () => {
               ЛУЧШИЙ ВЫБОР
             </Badge>
             <h3 className="text-2xl font-bold text-gray-800 mb-2">
-              Весь курс = экономия 6 000 ₽
+              Весь курс = экономия 8 000 ₽
             </h3>
             <p className="text-gray-700 text-lg">
-              При оплате всего курса вы экономите 17% и получаете максимальный результат для вашего ребёнка
+              При оплате всего курса вы экономите 25% и получаете максимальный результат для вашего ребёнка
             </p>
           </div>
 
           <div className="text-center text-sm text-gray-500">
-            *Цена 1 250 ₽ действует только при 100% оплате курса
+            *Цена 1 490 ₽ действует только при оплате всего курса целиком
           </div>
         </div>
       </div>

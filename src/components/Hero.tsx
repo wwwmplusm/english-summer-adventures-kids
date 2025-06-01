@@ -63,13 +63,19 @@ export const Hero = () => {
             </p>
           </div>
 
+          <div className="bg-gradient-to-r from-purple-100 to-blue-100 rounded-2xl p-6 mb-8">
+            <p className="text-lg text-gray-700 font-medium">
+              Набор идёт в две группы: 8–9 лет и 10–11 лет. Точное распределение делаем на первом бесплатном уроке.
+            </p>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button 
               onClick={handleDiagnostic}
               className="btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white px-8 py-4 text-lg font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300"
               size="lg"
             >
-              Получить бесплатный урок и персональный план
+              Получить бесплатный урок и план
             </Button>
             <Button 
               onClick={scrollToProgram}
@@ -79,13 +85,6 @@ export const Hero = () => {
             >
               Смотреть программу
             </Button>
-          </div>
-
-          <div className="text-center">
-            <p className="text-sm text-gray-500 mb-2">🔥 Запись открыта! Осталось мест в группах:</p>
-            <div className="bg-red-500 text-white px-4 py-2 rounded-full inline-block font-bold">
-              7 из 30
-            </div>
           </div>
         </div>
       </div>

@@ -31,13 +31,13 @@ export const StickyHeader = () => {
     }`}>
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="font-bold text-xl text-gray-800">
-          <span className="text-[#FF6B00]">English</span> Intensive
+          <span className="text-[#FF6B00]">Интенсив</span> по английскому
         </div>
         <Button 
           onClick={handleDiagnostic}
           className="btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white px-6 py-2 rounded-lg font-semibold transition-all"
         >
-          Получить бесплатный урок и персональный план
+          Получить бесплатный урок и план
         </Button>
       </div>
     </header>

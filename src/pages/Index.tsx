@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { Hero } from '@/components/Hero';
 import { ComparisonTable } from '@/components/ComparisonTable';
 import { ProgramTimeline } from '@/components/ProgramTimeline';
-import { Methodology } from '@/components/Methodology';
 import { Testimonials } from '@/components/Testimonials';
 import { Pricing } from '@/components/Pricing';
 import { FAQ } from '@/components/FAQ';
@@ -72,7 +71,6 @@ const Index = () => {
         <Hero />
         <ComparisonTable />
         <ProgramTimeline />
-        <Methodology />
         <Testimonials />
         <Pricing />
         <FAQ />

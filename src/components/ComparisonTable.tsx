@@ -20,18 +20,18 @@ export const ComparisonTable = () => {
         <div className="max-w-4xl mx-auto">
           <Card className="overflow-hidden shadow-2xl border-0">
             <CardHeader className="bg-gradient-to-r from-[#FF6B00] to-orange-500 text-white p-0">
-              <div className="grid grid-cols-3 gap-4 text-center p-6">
+              <div className="grid grid-cols-3 gap-4 text-center p-6 relative">
                 <div className="font-semibold text-lg">Критерий</div>
                 <div className="relative">
-                  <Badge className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black text-xs font-bold">
-                    🧡 НАШ ИНТЕНСИВ
+                  <div className="font-bold text-xl">🧡 НАШ ИНТЕНСИВ</div>
+                  <Badge className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black text-xs font-bold px-3 py-1">
+                    Лучший выбор
                   </Badge>
-                  <div className="font-bold text-xl mt-4">Лучший выбор</div>
                 </div>
                 <div className="font-semibold text-lg">🙄 Обычный репетитор</div>
               </div>
             </CardHeader>
-            <CardContent className="p-0">
+            <CardContent className="p-0 mt-8">
               <div className="grid grid-cols-3 gap-4 p-4 text-center items-center border-b">
                 <div className="font-medium text-left">Цена за урок</div>
                 <div className="bg-orange-50 rounded-lg p-3">
@@ -64,12 +64,20 @@ export const ComparisonTable = () => {
                 <div className="text-gray-600 text-sm">Общается только со взрослым</div>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 p-4 text-center items-center">
+              <div className="grid grid-cols-3 gap-4 p-4 text-center items-center border-b">
                 <div className="font-medium text-left">Всестороннее развитие в английском</div>
                 <div className="bg-orange-50 rounded-lg p-3">
                   <div className="text-sm font-medium">Говорение, аудирование, чтение, лексика — через практику</div>
                 </div>
                 <div className="text-gray-600 text-sm">Упор на грамматику и тесты</div>
+              </div>
+
+              <div className="grid grid-cols-3 gap-4 p-4 text-center items-center">
+                <div className="font-medium text-left">Интерактив</div>
+                <div className="bg-orange-50 rounded-lg p-3">
+                  <div className="text-sm font-medium">Игры, песни, викторины и мини-проекты на каждом уроке</div>
+                </div>
+                <div className="text-gray-600 text-sm">Часто сухие упражнения и тесты</div>
               </div>
             </CardContent>
           </Card>

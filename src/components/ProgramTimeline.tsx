@@ -1,49 +1,56 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 export const ProgramTimeline = () => {
   const weeks = [
     {
       week: 1,
-      title: "All About Me!",
-      description: "Знакомство, рассказ о себе, семье и увлечениях"
+      title: "School & Classroom",
+      grammar: "have got, this/that, мн. число -s",
+      project: "Jamboard «My Dream Pencil-Case»"
     },
     {
       week: 2,
-      title: "My Family & Friends",
-      description: "Семья, дружба и близкие люди"
+      title: "Daily Routines & Time",
+      grammar: "Present Simple (I/He), at/on",
+      project: "Canva-постер «My Timetable»"
     },
     {
       week: 3,
-      title: "My Toys",
-      description: "Игрушки, любимые предметы и игры"
+      title: "Seasons & Weather",
+      grammar: "What's the weather like?, wear vs wearing",
+      project: "Padlet-видеоблог «Прогноз погоды»"
     },
     {
       week: 4,
-      title: "My House",
-      description: "Дом, комнаты и предметы интерьера"
+      title: "Food & Healthy Habits",
+      grammar: "like/don't like, some/any",
+      project: "Ролевая «Healthy Smoothie Show»"
     },
     {
       week: 5,
-      title: "Animals",
-      description: "Животные, их характеристики и звуки"
+      title: "Wild & Farm Animals",
+      grammar: "can/can't, сравн. прилагательные",
+      project: "Google Slides «Virtual Zoo»"
     },
     {
       week: 6,
-      title: "Food I Like",
-      description: "Еда, напитки и предпочтения в питании"
+      title: "My House & Furniture",
+      grammar: "there is/are, in/on/under, a/an→the",
+      project: "Miro-план «Room Tour VR»"
     },
     {
       week: 7,
-      title: "Clothes & Weather",
-      description: "Одежда, погода и времена года"
+      title: "Hobbies & Sports",
+      grammar: "Present Simple ?/-, often/never",
+      project: "«Sport Challenge» (TikTok-style)"
     },
     {
       week: 8,
-      title: "My Day & Fun Activities",
-      description: "Распорядок дня, хобби и итоговый праздник"
+      title: "Holidays & Traditions",
+      grammar: "was/were (intro), going to",
+      project: "Финальный спектакль «Party Time»"
     }
   ];
 
@@ -55,51 +62,45 @@ export const ProgramTimeline = () => {
             Программа 8 недель
           </h2>
           <p className="text-xl text-gray-600 mb-4">
-            Пошаговый план изучения английского от простого к сложному
-          </p>
-          <p className="text-sm text-gray-500">
-            Каждую неделю — 2 живых урока и домашнее задание для закрепления.
+            Каждая неделя — новая тема с 70 словами и мини-проектом
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
-            {weeks.map((week, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`week-${week.week}`}
-                className="border border-gray-200 rounded-lg px-6 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <AccordionTrigger className="text-left py-6">
-                  <div className="flex items-center gap-4">
-                    <div className="bg-gradient-to-r from-purple-500 to-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold">
-                      {week.week}
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg text-gray-800">{week.title}</h3>
-                      <p className="text-gray-600 text-left">{week.description}</p>
-                    </div>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="pb-6">
-                  <div className="ml-16 space-y-4">
-                    <div>
-                      <h4 className="font-semibold text-gray-800 mb-2">Ключевая лексика:</h4>
-                      <p className="text-gray-600">Основные слова и выражения по теме недели</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-800 mb-2">Игровая активность:</h4>
-                      <p className="text-gray-600">Интерактивные игры и упражнения для закрепления материала</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-800 mb-2">Грамматический фокус:</h4>
-                      <p className="text-gray-600">Изучение базовых грамматических конструкций через практику</p>
-                    </div>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+        <div className="max-w-6xl mx-auto">
+          <Card className="overflow-hidden shadow-2xl border-0">
+            <CardContent className="p-0">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-gradient-to-r from-purple-500 to-blue-500 text-white">
+                    <tr>
+                      <th className="p-4 text-left font-bold">Неделя</th>
+                      <th className="p-4 text-left font-bold">Темы (70 слов)</th>
+                      <th className="p-4 text-left font-bold">Грамматика / фонетика</th>
+                      <th className="p-4 text-left font-bold">Мини-проект</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {weeks.map((week, index) => (
+                      <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                        <td className="p-4">
+                          <div className="bg-gradient-to-r from-purple-500 to-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+                            {week.week}
+                          </div>
+                        </td>
+                        <td className="p-4 font-semibold text-gray-800">{week.title}</td>
+                        <td className="p-4 text-gray-600 text-sm">{week.grammar}</td>
+                        <td className="p-4 text-gray-700 text-sm">{week.project}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </CardContent>
+          </Card>
+          
+          <div className="text-center text-sm text-gray-500 mt-4">
+            *2 живых урока + домашнее задание каждую неделю
+          </div>
         </div>
       </div>
     </section>
