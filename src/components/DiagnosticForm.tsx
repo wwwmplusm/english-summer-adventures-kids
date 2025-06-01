@@ -16,8 +16,17 @@ export const DiagnosticForm = () => {
     contactMethod: ''
   });
 
+  const [currentStep, setCurrentStep] = useState(1);
+
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    
+    // Auto-advance to next step when field is filled
+    const fieldOrder = ['parentName', 'childAge', 'grade', 'phone', 'contactMethod'];
+    const currentIndex = fieldOrder.indexOf(field);
+    if (currentIndex !== -1 && value && currentStep === currentIndex + 1) {
+      setCurrentStep(Math.min(5, currentStep + 1));
+    }
   };
 
   const formatPhone = (value: string) => {
@@ -54,6 +63,10 @@ export const DiagnosticForm = () => {
            formData.contactMethod;
   };
 
+  const getProgressWidth = () => {
+    return `${(currentStep / 5) * 100}%`;
+  };
+
   return (
     <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50" id="diagnostic">
       <div className="container mx-auto px-4">
@@ -73,6 +86,17 @@ export const DiagnosticForm = () => {
           <Card className="border-0 shadow-2xl">
             <CardHeader className="bg-gradient-to-r from-[#FF6B00] to-orange-500 text-white text-center">
               <CardTitle className="text-2xl font-bold">Заполните форму</CardTitle>
+              
+              {/* Progress Bar */}
+              <div className="mt-4">
+                <div className="w-full bg-[#E0E0E0] rounded-full h-2">
+                  <div 
+                    className="bg-[#FFBD69] h-2 rounded-full transition-all duration-300 ease-out"
+                    style={{ width: getProgressWidth() }}
+                  ></div>
+                </div>
+                <p className="text-white/80 text-sm mt-2">Шаг {currentStep} из 5</p>
+              </div>
             </CardHeader>
             <CardContent className="p-8">
               <div className="space-y-6">

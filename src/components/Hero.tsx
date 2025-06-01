@@ -20,7 +20,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-orange-50 to-yellow-50 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#FFE8B6] via-[#FFBD69] to-[#FFBD69] overflow-hidden">
       {/* Background parallax effect */}
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center bg-fixed opacity-20"></div>
       
@@ -31,9 +31,9 @@ export const Hero = () => {
 
       <div className="container mx-auto px-4 text-center relative z-10 pt-20">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-800 leading-tight">
-            Лето с пользой: говорим по-английски 
-            <span className="text-[#FF6B00]"> уже через 8 недель</span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#1C1C1E] leading-tight">
+            Лето с пользой: погружение в язык 
+            <span className="text-[#FF6B00]"> за 8 недель</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
@@ -75,7 +75,7 @@ export const Hero = () => {
               className="btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white px-8 py-4 text-lg font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300"
               size="lg"
             >
-              Получить бесплатный урок и план
+              Получить бесплатный урок и персональный план
             </Button>
             <Button 
               onClick={scrollToProgram}

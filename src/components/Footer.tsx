@@ -28,7 +28,7 @@ export const Footer = () => {
           </Button>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
             <h3 className="font-bold text-lg mb-4 text-[#FF6B00]">Документы</h3>
             <ul className="space-y-2 text-sm">
@@ -55,29 +55,11 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-4 text-[#FF6B00]">Оплата</h3>
-            <div className="text-sm mb-4">
-              <p>Система быстрых платежей (СБП)</p>
-              <p>Банковские карты</p>
-            </div>
-            <div className="bg-white p-3 rounded-lg inline-block">
-              <div className="w-24 h-24 bg-gray-200 rounded flex items-center justify-center text-gray-600 text-xs">
-                QR-код СБП
-              </div>
-            </div>
-          </div>
-
-          <div>
             <h3 className="font-bold text-lg mb-4 text-[#FF6B00]">Социальные сети</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="https://t.me/english_intensive_kids_parents" target="_blank" className="hover:text-[#FF6B00] transition-colors">
+                <a href="https://t.me/english_kids_summer" target="_blank" className="hover:text-[#FF6B00] transition-colors">
                   Telegram-канал для родителей
-                </a>
-              </li>
-              <li>
-                <a href="https://vk.com/english_intensive" target="_blank" className="hover:text-[#FF6B00] transition-colors">
-                  ВКонтакте
                 </a>
               </li>
             </ul>
@@ -90,7 +72,7 @@ export const Footer = () => {
               Летний интенсив английского для детей
             </h4>
             <p className="text-gray-400">
-              Онлайн-обучение английскому языку детей 7-11 лет в малых группах
+              Онлайн-обучение английскому языку детей 8-11 лет в малых группах
             </p>
           </div>
           

@@ -7,50 +7,42 @@ export const ProgramTimeline = () => {
     {
       week: 1,
       title: "School & Classroom",
-      grammar: "have got, this/that, мн. число -s",
-      project: "Jamboard «My Dream Pencil-Case»"
+      grammar: "have got, this/that, мн. число -s"
     },
     {
       week: 2,
       title: "Daily Routines & Time",
-      grammar: "Present Simple (I/He), at/on",
-      project: "Canva-постер «My Timetable»"
+      grammar: "Present Simple (I/He), at/on"
     },
     {
       week: 3,
       title: "Seasons & Weather",
-      grammar: "What's the weather like?, wear vs wearing",
-      project: "Padlet-видеоблог «Прогноз погоды»"
+      grammar: "What's the weather like?, wear vs wearing"
     },
     {
       week: 4,
       title: "Food & Healthy Habits",
-      grammar: "like/don't like, some/any",
-      project: "Ролевая «Healthy Smoothie Show»"
+      grammar: "like/don't like, some/any"
     },
     {
       week: 5,
       title: "Wild & Farm Animals",
-      grammar: "can/can't, сравн. прилагательные",
-      project: "Google Slides «Virtual Zoo»"
+      grammar: "can/can't, сравн. прилагательные"
     },
     {
       week: 6,
       title: "My House & Furniture",
-      grammar: "there is/are, in/on/under, a/an→the",
-      project: "Miro-план «Room Tour VR»"
+      grammar: "there is/are, in/on/under, a/an→the"
     },
     {
       week: 7,
       title: "Hobbies & Sports",
-      grammar: "Present Simple ?/-, often/never",
-      project: "«Sport Challenge» (TikTok-style)"
+      grammar: "Present Simple ?/-, often/never"
     },
     {
       week: 8,
       title: "Holidays & Traditions",
-      grammar: "was/were (intro), going to",
-      project: "Финальный спектакль «Party Time»"
+      grammar: "was/were (intro), going to"
     }
   ];
 
@@ -61,9 +53,6 @@ export const ProgramTimeline = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
             Программа 8 недель
           </h2>
-          <p className="text-xl text-gray-600 mb-4">
-            Каждая неделя — новая тема с 70 словами и мини-проектом
-          </p>
         </div>
 
         <div className="max-w-6xl mx-auto">
@@ -74,9 +63,8 @@ export const ProgramTimeline = () => {
                   <thead className="bg-gradient-to-r from-purple-500 to-blue-500 text-white">
                     <tr>
                       <th className="p-4 text-left font-bold">Неделя</th>
-                      <th className="p-4 text-left font-bold">Темы (70 слов)</th>
+                      <th className="p-4 text-left font-bold">Темы</th>
                       <th className="p-4 text-left font-bold">Грамматика / фонетика</th>
-                      <th className="p-4 text-left font-bold">Мини-проект</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -89,7 +77,6 @@ export const ProgramTimeline = () => {
                         </td>
                         <td className="p-4 font-semibold text-gray-800">{week.title}</td>
                         <td className="p-4 text-gray-600 text-sm">{week.grammar}</td>
-                        <td className="p-4 text-gray-700 text-sm">{week.project}</td>
                       </tr>
                     ))}
                   </tbody>

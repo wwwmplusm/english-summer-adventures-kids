@@ -90,7 +90,7 @@ export const Pricing = () => {
                     variant="outline"
                     className="btn-primary w-full border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white py-3 rounded-lg font-semibold"
                   >
-                    Получить бесплатный урок и план
+                    Получить бесплатный урок и персональный план
                   </Button>
                 </div>
               </CardContent>
@@ -128,7 +128,7 @@ export const Pricing = () => {
                   onClick={handleDiagnostic}
                   className="btn-primary w-full bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 rounded-lg font-semibold text-lg"
                 >
-                  Получить бесплатный урок и план
+                  Получить бесплатный урок и персональный план
                 </Button>
               </CardContent>
             </Card>
@@ -146,8 +146,12 @@ export const Pricing = () => {
             </p>
           </div>
 
-          <div className="text-center text-sm text-gray-500">
+          <div className="text-center text-sm text-gray-500 mb-4">
             *Цена 1 490 ₽ действует только при оплате всего курса целиком
+          </div>
+
+          <div className="text-center text-sm text-gray-600">
+            При оплате по неделям действует предоплата: сумма вносится за предстоящую неделю вперёд.
           </div>
         </div>
       </div>
