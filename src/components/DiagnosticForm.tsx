@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Checkbox } from '@/components/ui/checkbox';
 
 export const DiagnosticForm = () => {
   const [formData, setFormData] = useState({
@@ -13,19 +14,22 @@ export const DiagnosticForm = () => {
     childAge: '',
     grade: '',
     phone: '',
-    contactMethod: ''
+    contactMethod: '',
+    privacyAgreement: false
   });
 
   const [currentStep, setCurrentStep] = useState(1);
 
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field: string, value: string | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     
-    // Auto-advance to next step when field is filled
-    const fieldOrder = ['parentName', 'childAge', 'grade', 'phone', 'contactMethod'];
-    const currentIndex = fieldOrder.indexOf(field);
-    if (currentIndex !== -1 && value && currentStep === currentIndex + 1) {
-      setCurrentStep(Math.min(5, currentStep + 1));
+    // Auto-advance to next step when field is filled (only for text fields)
+    if (typeof value === 'string' && value) {
+      const fieldOrder = ['parentName', 'childAge', 'grade', 'phone', 'contactMethod'];
+      const currentIndex = fieldOrder.indexOf(field);
+      if (currentIndex !== -1 && currentStep === currentIndex + 1) {
+        setCurrentStep(Math.min(5, currentStep + 1));
+      }
     }
   };
 
@@ -60,7 +64,8 @@ export const DiagnosticForm = () => {
            formData.childAge && 
            formData.grade && 
            formData.phone.length >= 18 && 
-           formData.contactMethod;
+           formData.contactMethod &&
+           formData.privacyAgreement;
   };
 
   const getProgressWidth = () => {
@@ -75,7 +80,7 @@ export const DiagnosticForm = () => {
             Записаться на бесплатный урок
           </h2>
           <p className="text-xl text-gray-600 mb-4">
-            Узнайте уровень английского вашего ребёнка за 15 минут — бесплатно!
+            Узнайте уровень английского вашего ребёнка за 30 минут — бесплатно!
           </p>
           <p className="text-lg text-[#FF6B00] font-semibold">
             🎁 Диагностика + персональные рекомендации для обучения
@@ -172,6 +177,27 @@ export const DiagnosticForm = () => {
                       <Label htmlFor="telegram">Telegram</Label>
                     </div>
                   </RadioGroup>
+                </div>
+
+                <div className="flex items-start space-x-2">
+                  <Checkbox 
+                    id="privacy"
+                    checked={formData.privacyAgreement}
+                    onCheckedChange={(checked) => handleInputChange('privacyAgreement', checked)}
+                    className="mt-1"
+                  />
+                  <Label htmlFor="privacy" className="text-sm leading-relaxed">
+                    Я прочитал(а){' '}
+                    <a 
+                      href="https://docs.google.com/document/d/1vSm3Qa4KRj57nwiaGAovM57ltrvIZk46ywCoCTrnXok/edit?usp=sharing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#FF6B00] hover:underline"
+                    >
+                      Политику конфиденциальности
+                    </a>
+                    {' '}и даю согласие на обработку персональных данных *
+                  </Label>
                 </div>
               </div>
 

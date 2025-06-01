@@ -43,7 +43,8 @@ export const FinalCTA = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               onClick={handlePayment}
-              className="btn-secondary bg-white text-[#FF6B00] hover:bg-gray-100 px-8 py-4 text-lg font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300"
+              className="btn-secondary bg-white hover:bg-gray-100 px-8 py-4 text-lg font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300"
+              style={{ color: '#FF6B00', fontWeight: 600 }}
               size="lg"
             >
               Оплатить курс

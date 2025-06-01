@@ -11,6 +11,7 @@ import { FinalCTA } from '@/components/FinalCTA';
 import { Footer } from '@/components/Footer';
 import { StickyHeader } from '@/components/StickyHeader';
 import { BottomBar } from '@/components/BottomBar';
+import { SectionCTA } from '@/components/SectionCTA';
 
 const Index = () => {
   useEffect(() => {
@@ -70,10 +71,14 @@ const Index = () => {
       <main>
         <Hero />
         <ComparisonTable />
+        <SectionCTA />
         <ProgramTimeline />
+        <SectionCTA />
         <Testimonials />
         <Pricing />
+        <SectionCTA />
         <FAQ />
+        <SectionCTA />
         <DiagnosticForm />
         <FinalCTA />
       </main>

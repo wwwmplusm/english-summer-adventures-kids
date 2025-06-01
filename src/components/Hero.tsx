@@ -19,6 +19,10 @@ export const Hero = () => {
     document.getElementById('program')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToForm = () => {
+    document.getElementById('diagnostic')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#FFE8B6] via-[#FFBD69] to-[#FFBD69] overflow-hidden">
       {/* Background parallax effect */}
@@ -32,8 +36,7 @@ export const Hero = () => {
       <div className="container mx-auto px-4 text-center relative z-10 pt-20">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#1C1C1E] leading-tight">
-            Лето с пользой: погружение в язык 
-            <span className="text-[#FF6B00]"> за 8 недель</span>
+            Лето с пользой: погружение в язык за 8 недель
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
@@ -59,7 +62,7 @@ export const Hero = () => {
 
           <div className="bg-gradient-to-r from-orange-100 to-yellow-100 rounded-2xl p-6 mb-8">
             <p className="text-lg text-gray-700 font-medium">
-              15-мин вступительный урок-игра и персональный план занятий на всё лето — бесплатно и без обязательств
+              30-мин вступительный урок-игра и персональный план занятий на всё лето — бесплатно и без обязательств
             </p>
           </div>
 
@@ -75,7 +78,7 @@ export const Hero = () => {
               className="btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white px-8 py-4 text-lg font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300"
               size="lg"
             >
-              Получить бесплатный урок и персональный план
+              Получить бесплатный урок и план
             </Button>
             <Button 
               onClick={scrollToProgram}

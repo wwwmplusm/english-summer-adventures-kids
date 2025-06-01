@@ -33,12 +33,22 @@ export const Footer = () => {
             <h3 className="font-bold text-lg mb-4 text-[#FF6B00]">Документы</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/public-offer.pdf" target="_blank" className="hover:text-[#FF6B00] transition-colors">
-                  Публичная оферта (PDF)
+                <a 
+                  href="https://docs.google.com/document/d/1pdPEYcjPuQLpQOwVRgE2QwAnn0ylgeYz4oBiwmVFgwo/edit?usp=sharing" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FF6B00] transition-colors"
+                >
+                  Публичная оферта
                 </a>
               </li>
               <li>
-                <a href="/privacy-policy.pdf" target="_blank" className="hover:text-[#FF6B00] transition-colors">
+                <a 
+                  href="https://docs.google.com/document/d/1vSm3Qa4KRj57nwiaGAovM57ltrvIZk46ywCoCTrnXok/edit?usp=sharing" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FF6B00] transition-colors"
+                >
                   Политика конфиденциальности
                 </a>
               </li>
@@ -46,12 +56,14 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-4 text-[#FF6B00]">Контакты</h3>
-            <ul className="space-y-2 text-sm">
-              <li>WhatsApp: +7 (999) 123-45-67</li>
-              <li>Email: info@english-intensive.ru</li>
-              <li>Пн-Вс: 9:00 - 21:00 МСК</li>
-            </ul>
+            <h3 className="font-bold text-lg mb-4 text-[#FF6B00]">Реквизиты</h3>
+            <div className="space-y-2 text-sm">
+              <p className="font-semibold">Поздников Марк Денисович</p>
+              <p>Самозанятый (НПД, ФЗ-422)</p>
+              <p>Режим работы — с 08:00 до 21:00 (МСК)</p>
+              <p>E-mail: info@site.ru</p>
+              <p>Тел.: +7 ___ ___-__-__</p>
+            </div>
           </div>
 
           <div>
