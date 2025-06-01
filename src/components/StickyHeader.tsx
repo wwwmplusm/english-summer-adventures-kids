@@ -37,7 +37,7 @@ export const StickyHeader = () => {
           onClick={handleDiagnostic}
           className="btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white px-6 py-2 rounded-lg font-semibold transition-all"
         >
-          Бесплатный урок + план
+          Получить бесплатный урок и персональный план
         </Button>
       </div>
     </header>

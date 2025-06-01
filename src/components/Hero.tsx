@@ -37,7 +37,7 @@ export const Hero = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
-            3 урока в неделю по 55 минут · Группа до 4 детей
+            2 урока в неделю по 55 минут + домашнее задание · вт и чт в 12:00 (МСК)
           </p>
 
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 mb-8 shadow-xl">
@@ -69,7 +69,7 @@ export const Hero = () => {
               className="btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white px-8 py-4 text-lg font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300"
               size="lg"
             >
-              Получить бесплатный урок + индивидуальный план на лето
+              Получить бесплатный урок и персональный план
             </Button>
             <Button 
               onClick={scrollToProgram}

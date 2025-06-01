@@ -4,14 +4,16 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Progress } from '@/components/ui/progress';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
 export const DiagnosticForm = () => {
-  const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
-    childName: '',
-    age: '',
-    phone: ''
+    parentName: '',
+    childAge: '',
+    grade: '',
+    phone: '',
+    contactMethod: ''
   });
 
   const handleInputChange = (field: string, value: string) => {
@@ -20,16 +22,11 @@ export const DiagnosticForm = () => {
 
   const formatPhone = (value: string) => {
     const numbers = value.replace(/\D/g, '');
-    const match = numbers.match(/^(\d{1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})$/);
-    if (match) {
-      let formatted = '+7';
-      if (match[2]) formatted += ` (${match[2]}`;
-      if (match[3]) formatted += `) ${match[3]}`;
-      if (match[4]) formatted += `-${match[4]}`;
-      if (match[5]) formatted += `-${match[5]}`;
-      return formatted;
-    }
-    return value;
+    if (numbers.length <= 1) return '+7';
+    if (numbers.length <= 4) return `+7 (${numbers.slice(1)}`;
+    if (numbers.length <= 7) return `+7 (${numbers.slice(1, 4)}) ${numbers.slice(4)}`;
+    if (numbers.length <= 9) return `+7 (${numbers.slice(1, 4)}) ${numbers.slice(4, 7)}-${numbers.slice(7)}`;
+    return `+7 (${numbers.slice(1, 4)}) ${numbers.slice(4, 7)}-${numbers.slice(7, 9)}-${numbers.slice(9, 11)}`;
   };
 
   const handlePhoneChange = (value: string) => {
@@ -37,17 +34,9 @@ export const DiagnosticForm = () => {
     handleInputChange('phone', formatted);
   };
 
-  const nextStep = () => {
-    if (step < 3) setStep(step + 1);
-  };
-
-  const prevStep = () => {
-    if (step > 1) setStep(step - 1);
-  };
-
   const handleSubmit = () => {
     const utmParams = new URLSearchParams(window.location.search).toString();
-    const waMessage = `Диагностика ${formData.childName}, ${formData.age} лет${utmParams ? `?${utmParams}` : ''}`;
+    const waMessage = `Записаться на бесплатный урок: ${formData.parentName}, ребёнок ${formData.childAge} лет, ${formData.grade}${utmParams ? `?${utmParams}` : ''}`;
     window.open(`https://wa.me/79XXXXXXXXX?text=${encodeURIComponent(waMessage)}`, '_blank');
     
     // Analytics
@@ -57,23 +46,20 @@ export const DiagnosticForm = () => {
     }
   };
 
-  const canProceed = () => {
-    switch (step) {
-      case 1: return formData.childName.length > 0;
-      case 2: return formData.age.length > 0;
-      case 3: return formData.phone.length >= 18;
-      default: return false;
-    }
+  const isFormValid = () => {
+    return formData.parentName && 
+           formData.childAge && 
+           formData.grade && 
+           formData.phone.length >= 18 && 
+           formData.contactMethod;
   };
-
-  const progress = (step / 3) * 100;
 
   return (
     <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50" id="diagnostic">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-            Быстрая диагностика
+            Записаться на бесплатный урок
           </h2>
           <p className="text-xl text-gray-600 mb-4">
             Узнайте уровень английского вашего ребёнка за 15 минут — бесплатно!
@@ -86,100 +72,92 @@ export const DiagnosticForm = () => {
         <div className="max-w-md mx-auto">
           <Card className="border-0 shadow-2xl">
             <CardHeader className="bg-gradient-to-r from-[#FF6B00] to-orange-500 text-white text-center">
-              <CardTitle className="text-2xl font-bold">Шаг {step} из 3</CardTitle>
-              <Progress value={progress} className="mt-4 bg-white/20" />
+              <CardTitle className="text-2xl font-bold">Заполните форму</CardTitle>
             </CardHeader>
             <CardContent className="p-8">
-              {step === 1 && (
-                <div className="space-y-6">
-                  <div className="text-center mb-6">
-                    <h3 className="text-xl font-semibold mb-2">Как зовут вашего ребёнка?</h3>
-                    <p className="text-gray-600">Это поможет нам персонализировать диагностику</p>
-                  </div>
-                  <div>
-                    <Label htmlFor="childName" className="text-base font-medium">Имя ребёнка</Label>
-                    <Input
-                      id="childName"
-                      type="text"
-                      placeholder="Например: Анна"
-                      value={formData.childName}
-                      onChange={(e) => handleInputChange('childName', e.target.value)}
-                      className="mt-2 text-lg p-4"
-                    />
-                  </div>
+              <div className="space-y-6">
+                <div>
+                  <Label htmlFor="parentName" className="text-base font-medium">Имя родителя *</Label>
+                  <Input
+                    id="parentName"
+                    type="text"
+                    placeholder="Ваше имя"
+                    value={formData.parentName}
+                    onChange={(e) => handleInputChange('parentName', e.target.value)}
+                    className="mt-2 text-lg p-4"
+                    required
+                  />
                 </div>
-              )}
 
-              {step === 2 && (
-                <div className="space-y-6">
-                  <div className="text-center mb-6">
-                    <h3 className="text-xl font-semibold mb-2">Сколько лет {formData.childName}?</h3>
-                    <p className="text-gray-600">Это поможет подобрать подходящую группу</p>
-                  </div>
-                  <div>
-                    <Label htmlFor="age" className="text-base font-medium">Возраст</Label>
-                    <Input
-                      id="age"
-                      type="number"
-                      min="8"
-                      max="11"
-                      placeholder="Например: 9"
-                      value={formData.age}
-                      onChange={(e) => handleInputChange('age', e.target.value)}
-                      className="mt-2 text-lg p-4"
-                    />
-                  </div>
+                <div>
+                  <Label htmlFor="childAge" className="text-base font-medium">Возраст ребёнка *</Label>
+                  <Input
+                    id="childAge"
+                    type="number"
+                    min="8"
+                    max="11"
+                    placeholder="Возраст (8-11 лет)"
+                    value={formData.childAge}
+                    onChange={(e) => handleInputChange('childAge', e.target.value)}
+                    className="mt-2 text-lg p-4"
+                    required
+                  />
                 </div>
-              )}
 
-              {step === 3 && (
-                <div className="space-y-6">
-                  <div className="text-center mb-6">
-                    <h3 className="text-xl font-semibold mb-2">Ваш WhatsApp для связи</h3>
-                    <p className="text-gray-600">Мы свяжемся с вами для назначения диагностики</p>
-                  </div>
-                  <div>
-                    <Label htmlFor="phone" className="text-base font-medium">Номер телефона</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      placeholder="+7 (999) 123-45-67"
-                      value={formData.phone}
-                      onChange={(e) => handlePhoneChange(e.target.value)}
-                      className="mt-2 text-lg p-4"
-                    />
-                  </div>
+                <div>
+                  <Label className="text-base font-medium">Класс *</Label>
+                  <Select onValueChange={(value) => handleInputChange('grade', value)} required>
+                    <SelectTrigger className="mt-2 text-lg p-4">
+                      <SelectValue placeholder="Выберите класс" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="2кл">2 кл.</SelectItem>
+                      <SelectItem value="3кл">3 кл.</SelectItem>
+                      <SelectItem value="4кл">4 кл.</SelectItem>
+                      <SelectItem value="5кл">5 кл.</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
-              )}
 
-              <div className="flex gap-3 mt-8">
-                {step > 1 && (
-                  <Button
-                    onClick={prevStep}
-                    variant="outline"
-                    className="flex-1 py-3 text-lg"
+                <div>
+                  <Label htmlFor="phone" className="text-base font-medium">Телефон *</Label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    placeholder="+7 (999) 123-45-67"
+                    value={formData.phone}
+                    onChange={(e) => handlePhoneChange(e.target.value)}
+                    className="mt-2 text-lg p-4"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <Label className="text-base font-medium">Способ связи *</Label>
+                  <RadioGroup 
+                    value={formData.contactMethod} 
+                    onValueChange={(value) => handleInputChange('contactMethod', value)}
+                    className="mt-2"
                   >
-                    Назад
-                  </Button>
-                )}
-                {step < 3 ? (
-                  <Button
-                    onClick={nextStep}
-                    disabled={!canProceed()}
-                    className="flex-1 bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 text-lg font-semibold"
-                  >
-                    Далее
-                  </Button>
-                ) : (
-                  <Button
-                    onClick={handleSubmit}
-                    disabled={!canProceed()}
-                    className="flex-1 btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 text-lg font-bold"
-                  >
-                    Да, хочу узнать уровень бесплатно!
-                  </Button>
-                )}
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="whatsapp" id="whatsapp" />
+                      <Label htmlFor="whatsapp">WhatsApp</Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="telegram" id="telegram" />
+                      <Label htmlFor="telegram">Telegram</Label>
+                    </div>
+                  </RadioGroup>
+                </div>
               </div>
+
+              <Button
+                onClick={handleSubmit}
+                disabled={!isFormValid()}
+                className="w-full mt-8 btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 text-lg font-bold"
+              >
+                Получить бесплатный урок и персональный план
+              </Button>
             </CardContent>
           </Card>
         </div>

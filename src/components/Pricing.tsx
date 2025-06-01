@@ -56,8 +56,7 @@ export const Pricing = () => {
               <CardContent className="p-8">
                 <div className="text-center mb-6">
                   <div className="text-4xl font-bold text-[#FF6B00] mb-2">29 990 ₽</div>
-                  <div className="text-gray-600">≈ 1 500 ₽/урок</div>
-                  <div className="text-sm text-gray-500 line-through">было: 36 000 ₽</div>
+                  <div className="text-gray-600">1 250 ₽ за урок*</div>
                 </div>
                 
                 <div className="space-y-3 mb-8">
@@ -91,7 +90,7 @@ export const Pricing = () => {
                     variant="outline"
                     className="btn-primary w-full border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white py-3 rounded-lg font-semibold"
                   >
-                    Бесплатный урок + план
+                    Получить бесплатный урок и персональный план
                   </Button>
                 </div>
               </CardContent>
@@ -107,7 +106,7 @@ export const Pricing = () => {
               <CardContent className="p-8">
                 <div className="text-center mb-6">
                   <div className="text-4xl font-bold text-blue-600 mb-2">4 500 ₽</div>
-                  <div className="text-gray-600">за неделю (3 урока)</div>
+                  <div className="text-gray-600">1 500 ₽ за урок</div>
                 </div>
                 
                 <div className="space-y-3 mb-8">
@@ -129,7 +128,7 @@ export const Pricing = () => {
                   onClick={handleDiagnostic}
                   className="btn-primary w-full bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 rounded-lg font-semibold text-lg"
                 >
-                  Бесплатный урок + план
+                  Получить бесплатный урок и персональный план
                 </Button>
               </CardContent>
             </Card>
@@ -148,7 +147,7 @@ export const Pricing = () => {
           </div>
 
           <div className="text-center text-sm text-gray-500">
-            *Цена за урок при оплате всего курса целиком
+            *Цена 1 250 ₽ действует только при 100% оплате курса
           </div>
         </div>
       </div>
