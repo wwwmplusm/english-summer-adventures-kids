@@ -1,18 +1,15 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { trackEvent } from "@/lib/analytics";
 
 export const FinalCTA = () => {
   const handleDiagnostic = () => {
-    const utmParams = new URLSearchParams(window.location.search).toString();
-    const waMessage = `Хочу на диагностику!${utmParams ? `?${utmParams}` : ''}`;
-    window.open(`https://wa.me/79XXXXXXXXX?text=${encodeURIComponent(waMessage)}`, '_blank');
+    // Плавный скролл к форме заявки
+    document.getElementById('diagnostic')?.scrollIntoView({ behavior: 'smooth' });
     
     // Analytics
-    if (typeof window !== 'undefined') {
-      (window as any).ym?.(88888888, 'reachGoal', 'Lead_Diagnosis');
-      (window as any).VK?.Retargeting?.Event('diagnosis_final_click');
-    }
+    trackEvent.ym(88888888, 'Scroll_To_Form_Final');
+    trackEvent.vk('scroll_to_form_final');
   };
 
   const handlePayment = () => {
@@ -20,10 +17,8 @@ export const FinalCTA = () => {
     window.open(`/payment?plan=full${utmParams ? `&${utmParams}` : ''}`, '_blank');
     
     // Analytics
-    if (typeof window !== 'undefined') {
-      (window as any).ym?.(88888888, 'reachGoal', 'Purchase');
-      (window as any).VK?.Retargeting?.Event('payment_final_click');
-    }
+    trackEvent.ym(88888888, 'Purchase');
+    trackEvent.vk('payment_final_click');
   };
 
   return (
@@ -37,7 +32,7 @@ export const FinalCTA = () => {
           </h2>
           
           <p className="text-xl text-white/90 mb-8">
-            Вступите в ряды родителей, которые дарят детям полезные каникулы
+            Подарите своим детям полезные каникулы
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -53,6 +48,7 @@ export const FinalCTA = () => {
               onClick={handleDiagnostic}
               variant="outline"
               className="border-2 border-white text-white hover:bg-white hover:text-[#FF6B00] px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300"
+              style={{ color: '#FF6B00', fontWeight: 600 }}
               size="lg"
             >
               Получить бесплатный урок и план

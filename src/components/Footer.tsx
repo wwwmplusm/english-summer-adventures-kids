@@ -4,7 +4,7 @@ export const Footer = () => {
   const handleDiagnostic = () => {
     const utmParams = new URLSearchParams(window.location.search).toString();
     const waMessage = `Хочу на диагностику!${utmParams ? `?${utmParams}` : ''}`;
-    window.open(`https://wa.me/79XXXXXXXXX?text=${encodeURIComponent(waMessage)}`, '_blank');
+    window.open(`https://wa.me/79851837932?text=${encodeURIComponent(waMessage)}`, '_blank');
 
     // Analytics
     if (typeof window !== 'undefined') {
@@ -14,11 +14,6 @@ export const Footer = () => {
   };
   return <footer className="bg-[#1C1C1E] text-white py-12">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <Button onClick={handleDiagnostic} className="btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white px-8 py-4 text-lg font-bold rounded-lg shadow-xl" size="lg">
-            Записать ребёнка
-          </Button>
-        </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
@@ -43,7 +38,7 @@ export const Footer = () => {
               <p className="font-semibold">Поздников Марк Денисович</p>
               <p>Самозанятый (НПД, ФЗ-422)</p>
               <p>Режим работы — с 08:00 до 21:00 (МСК)</p>
-              <p>E-mail: info@site.ru</p>
+              <p>E-mail: ekidseng@yandex.com</p>
               <p>Тел.: +7 996 669 78 97</p>
             </div>
           </div>

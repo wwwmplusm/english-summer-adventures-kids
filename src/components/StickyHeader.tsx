@@ -1,6 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { trackEvent } from "@/lib/analytics";
 
 export const StickyHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,15 +14,12 @@ export const StickyHeader = () => {
   }, []);
 
   const handleDiagnostic = () => {
-    const utmParams = new URLSearchParams(window.location.search).toString();
-    const waMessage = `Хочу на диагностику!${utmParams ? `?${utmParams}` : ''}`;
-    window.open(`https://wa.me/79XXXXXXXXX?text=${encodeURIComponent(waMessage)}`, '_blank');
+    // Плавный скролл к форме заявки
+    document.getElementById('diagnostic')?.scrollIntoView({ behavior: 'smooth' });
     
     // Analytics
-    if (typeof window !== 'undefined') {
-      (window as any).ym?.(88888888, 'reachGoal', 'Lead_Diagnosis');
-      (window as any).VK?.Retargeting?.Event('diagnosis_header_click');
-    }
+    trackEvent.ym(88888888, 'Scroll_To_Form_Header');
+    trackEvent.vk('scroll_to_form_header');
   };
 
   return (

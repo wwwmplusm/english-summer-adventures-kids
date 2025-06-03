@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Hero } from '@/components/Hero';
 import { ComparisonTable } from '@/components/ComparisonTable';
@@ -15,6 +14,9 @@ import { SectionCTA } from '@/components/SectionCTA';
 
 const Index = () => {
   useEffect(() => {
+    // Принудительно прокручиваем к верху страницы при загрузке
+    window.scrollTo(0, 0);
+    
     // VK Retarget pixel - with proper error handling
     try {
       (window as any).VK = (window as any).VK || {};

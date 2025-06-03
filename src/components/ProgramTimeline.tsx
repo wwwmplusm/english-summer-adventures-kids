@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -7,42 +6,42 @@ export const ProgramTimeline = () => {
     {
       week: 1,
       title: "School & Classroom",
-      grammar: "have got, this/that, мн. число -s"
+      grammar: "Ребёнок сможет назвать школьные предметы, попросить нужную вещь на уроке (ручку, карандаш) и описать, что находится в классе."
     },
     {
       week: 2,
       title: "Daily Routines & Time",
-      grammar: "Present Simple (I/He), at/on"
+      grammar: "Научится рассказывать о своём распорядке дня (когда встаёт, завтракает, идёт в школу) и называть время простых действий."
     },
     {
       week: 3,
       title: "Seasons & Weather",
-      grammar: "What's the weather like?, wear vs wearing"
+      grammar: "Сможет описать погоду за окном, назвать любимое время года и сказать, во что он одет или что нужно надеть."
     },
     {
       week: 4,
       title: "Food & Healthy Habits",
-      grammar: "like/don't like, some/any"
+      grammar: "Ребёнок расскажет о своих любимых и нелюбимых продуктах, сможет попросить еду или напиток и поговорить о здоровом питании."
     },
     {
       week: 5,
       title: "Wild & Farm Animals",
-      grammar: "can/can't, сравн. прилагательные"
+      grammar: "Научится называть разных животных, описывать, что они умеют делать (прыгать, бегать), и сравнивать их по размеру или скорости."
     },
     {
       week: 6,
       title: "My House & Furniture",
-      grammar: "there is/are, in/on/under, a/an→the"
+      grammar: "Сможет описать свой дом или комнату, рассказать, какая там есть мебель и где находятся разные предметы."
     },
     {
       week: 7,
       title: "Hobbies & Sports",
-      grammar: "Present Simple ?/-, often/never"
+      grammar: "Ребёнок расскажет о своих увлечениях и любимых видах спорта, сможет задать вопросы о хобби друга и сказать, как часто он чем-то занимается."
     },
     {
       week: 8,
       title: "Holidays & Traditions",
-      grammar: "was/were (intro), going to"
+      grammar: "Поговорит о прошедших праздниках, поделится впечатлениями и расскажет о планах на будущие каникулы или выходные."
     }
   ];
 
@@ -64,7 +63,7 @@ export const ProgramTimeline = () => {
                     <tr>
                       <th className="p-4 text-left font-bold">Неделя</th>
                       <th className="p-4 text-left font-bold">Темы</th>
-                      <th className="p-4 text-left font-bold">Грамматика / фонетика</th>
+                      <th className="p-4 text-left font-bold">Что научится делать ребёнок</th>
                     </tr>
                   </thead>
                   <tbody>

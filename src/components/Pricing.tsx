@@ -1,9 +1,9 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Check } from 'lucide-react';
+import { trackEvent } from "@/lib/analytics";
 
 export const Pricing = () => {
   const handlePayment = (plan: string) => {
@@ -11,22 +11,17 @@ export const Pricing = () => {
     window.open(`/payment?plan=${plan}${utmParams ? `&${utmParams}` : ''}`, '_blank');
     
     // Analytics
-    if (typeof window !== 'undefined') {
-      (window as any).ym?.(88888888, 'reachGoal', 'Purchase');
-      (window as any).VK?.Retargeting?.Event('payment_click');
-    }
+    trackEvent.ym(88888888, 'Purchase', { plan });
+    trackEvent.vk('payment_click');
   };
 
   const handleDiagnostic = () => {
-    const utmParams = new URLSearchParams(window.location.search).toString();
-    const waMessage = `Хочу на диагностику!${utmParams ? `?${utmParams}` : ''}`;
-    window.open(`https://wa.me/79XXXXXXXXX?text=${encodeURIComponent(waMessage)}`, '_blank');
+    // Плавный скролл к форме заявки
+    document.getElementById('diagnostic')?.scrollIntoView({ behavior: 'smooth' });
     
     // Analytics
-    if (typeof window !== 'undefined') {
-      (window as any).ym?.(88888888, 'reachGoal', 'Lead_Diagnosis');
-      (window as any).VK?.Retargeting?.Event('diagnosis_click');
-    }
+    trackEvent.ym(88888888, 'Scroll_To_Form_Pricing');
+    trackEvent.vk('scroll_to_form_pricing');
   };
 
   return (
@@ -81,10 +76,11 @@ export const Pricing = () => {
                 <div className="space-y-3">
                   <Button 
                     onClick={() => handlePayment('full')}
-                    className="btn-secondary w-full bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 rounded-lg font-semibold text-lg"
+                    className="btn-primary w-full bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 rounded-lg font-semibold text-lg"
                   >
-                    Оплатить курс
+                    Оплатить курс (23 990 ₽)
                   </Button>
+                  
                   <Button 
                     onClick={handleDiagnostic}
                     variant="outline"
@@ -123,6 +119,13 @@ export const Pricing = () => {
                     <span className="text-gray-700">Платите только за посещения</span>
                   </div>
                 </div>
+
+                <Button 
+                  onClick={() => handlePayment('weekly')}
+                  className="btn-primary w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold text-lg mb-3"
+                >
+                  Оплатить неделю (3 990 ₽)
+                </Button>
 
                 <Button 
                   onClick={handleDiagnostic}

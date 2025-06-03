@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест формы Google Apps Script</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #FF6B00;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #e55a00;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Тест форм для Google Apps Script</h1>
+        
+        <h2>1. Тест Contact Form</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="parentName1">Имя родителя:</label>
+                <input type="text" id="parentName1" name="parentName" value="Тест Родитель 1" required>
+            </div>
+            <div class="form-group">
+                <label for="childName">Имя ребенка:</label>
+                <input type="text" id="childName" name="childName" value="Тест Ребенок" required>
+            </div>
+            <div class="form-group">
+                <label for="childAge1">Возраст ребенка:</label>
+                <input type="text" id="childAge1" name="childAge" value="9" required>
+            </div>
+            <div class="form-group">
+                <label for="phone1">Телефон:</label>
+                <input type="text" id="phone1" name="phone" value="+7 (999) 123-45-67" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="test@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Сообщение:</label>
+                <textarea id="message" name="message">Тестовое сообщение от contact формы</textarea>
+            </div>
+            <button type="submit">Отправить Contact Form</button>
+        </form>
+
+        <h2>2. Тест Diagnostic Form</h2>
+        <form id="diagnosticForm">
+            <div class="form-group">
+                <label for="parentName2">Имя родителя:</label>
+                <input type="text" id="parentName2" name="parentName" value="Тест Родитель 2" required>
+            </div>
+            <div class="form-group">
+                <label for="childAge2">Возраст ребенка:</label>
+                <input type="text" id="childAge2" name="childAge" value="10" required>
+            </div>
+            <div class="form-group">
+                <label for="grade">Класс:</label>
+                <select id="grade" name="grade" required>
+                    <option value="">Выберите класс</option>
+                    <option value="2кл">2 кл.</option>
+                    <option value="3кл" selected>3 кл.</option>
+                    <option value="4кл">4 кл.</option>
+                    <option value="5кл">5 кл.</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="phone2">Телефон:</label>
+                <input type="text" id="phone2" name="phone" value="+7 (888) 777-66-55" required>
+            </div>
+            <div class="form-group">
+                <label for="contactMethod">Способ связи:</label>
+                <select id="contactMethod" name="contactMethod" required>
+                    <option value="">Выберите способ</option>
+                    <option value="telegram" selected>Telegram</option>
+                    <option value="whatsapp">WhatsApp</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="privacyAgreement" value="true" checked> 
+                    Согласие на обработку данных
+                </label>
+            </div>
+            <button type="submit">Отправить Diagnostic Form</button>
+        </form>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwk9B4gDAtuQU9Az3qI28llG48ap4P1cYKd-xs11Y1PFriLBZOCSg37nW05hd2hOb4K/exec';
+
+        function showResult(message, isSuccess = true) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = message;
+            resultDiv.className = `result ${isSuccess ? 'success' : 'error'}`;
+            resultDiv.style.display = 'block';
+            
+            // Автоматически скрыть через 5 секунд
+            setTimeout(() => {
+                resultDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        async function submitForm(formData, formType) {
+            try {
+                console.log(`Отправляем ${formType} форму:`, formData);
+                
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                console.log('Статус ответа:', response.status, response.statusText);
+
+                if (response.ok) {
+                    const responseText = await response.text();
+                    console.log('Ответ от сервера:', responseText);
+                    
+                    try {
+                        const jsonResponse = JSON.parse(responseText);
+                        if (jsonResponse.result === 'success') {
+                            showResult(`✅ ${formType} форма отправлена успешно! Тип: ${jsonResponse.formType}`, true);
+                        } else {
+                            showResult(`❌ Ошибка в ${formType} форме: ${jsonResponse.error}`, false);
+                        }
+                    } catch (e) {
+                        showResult(`✅ ${formType} форма отправлена (ответ: ${responseText.substring(0, 100)}...)`, true);
+                    }
+                } else {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+            } catch (error) {
+                console.error(`Ошибка отправки ${formType} формы:`, error);
+                
+                // Пробуем с no-cors
+                try {
+                    console.log(`Пробуем отправить ${formType} форму с no-cors...`);
+                    await fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        body: formData
+                    });
+                    
+                    showResult(`✅ ${formType} форма отправлена (no-cors режим)`, true);
+                } catch (noCorsError) {
+                    console.error(`Ошибка no-cors для ${formType}:`, noCorsError);
+                    showResult(`❌ Не удалось отправить ${formType} форму: ${error.message}`, false);
+                }
+            }
+        }
+
+        // Обработка Contact Form
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            await submitForm(formData, 'Contact');
+        });
+
+        // Обработка Diagnostic Form
+        document.getElementById('diagnosticForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            await submitForm(formData, 'Diagnostic');
+        });
+    </script>
+</body>
+</html> 

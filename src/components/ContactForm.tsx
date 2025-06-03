@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -18,24 +17,100 @@ export const ContactForm = () => {
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    
-    toast({
-      title: "Заявка отправлена!",
-      description: "Мы свяжемся с вами в течение 24 часов для записи на пробный урок.",
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  
+  // Используем правильный URL для Google Apps Script
+  const googleSheetURL = 'https://script.google.com/macros/s/AKfycbwk9B4gDAtuQU9Az3qI28llG48ap4P1cYKd-xs11Y1PFriLBZOCSg37nW05hd2hOb4K/exec';
+
+  console.log('Отправляем данные ContactForm:', formData);
+
+  try {
+    // Создаем FormData объект для лучшей совместимости с Google Apps Script
+    const formDataToSend = new FormData();
+    formDataToSend.append('parentName', formData.parentName);
+    formDataToSend.append('childName', formData.childName);
+    formDataToSend.append('childAge', formData.childAge);
+    formDataToSend.append('phone', formData.phone);
+    formDataToSend.append('email', formData.email);
+    formDataToSend.append('message', formData.message);
+
+    const response = await fetch(googleSheetURL, {
+      method: 'POST',
+      body: formDataToSend,
     });
+
+    // Проверяем статус ответа
+    console.log('Статус ответа:', response.status, response.statusText);
     
-    setFormData({
-      parentName: '',
-      childName: '',
-      childAge: '',
-      phone: '',
-      email: '',
-      message: ''
-    });
-  };
+    if (response.ok) {
+      const responseData = await response.text();
+      console.log('Ответ от сервера:', responseData);
+      
+      toast({
+        title: "Заявка отправлена!",
+        description: "Мы свяжемся с вами в течение 24 часов.",
+      });
+
+      // Сброс формы после успешной отправки
+      setFormData({
+        parentName: '',
+        childName: '',
+        childAge: '',
+        phone: '',
+        email: '',
+        message: ''
+      });
+    } else {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+
+  } catch (error) {
+    console.error('Ошибка отправки формы:', error);
+    
+    // Попытка отправки с no-cors как запасной вариант
+    try {
+      console.log('Пробуем отправить с no-cors...');
+      const formDataToSend = new FormData();
+      formDataToSend.append('parentName', formData.parentName);
+      formDataToSend.append('childName', formData.childName);
+      formDataToSend.append('childAge', formData.childAge);
+      formDataToSend.append('phone', formData.phone);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('message', formData.message);
+
+      await fetch(googleSheetURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formDataToSend,
+      });
+      
+      console.log('Отправка с no-cors выполнена');
+      toast({
+        title: "Заявка отправлена!",
+        description: "Мы свяжемся с вами в течение 24 часов.",
+      });
+
+      // Сброс формы
+      setFormData({
+        parentName: '',
+        childName: '',
+        childAge: '',
+        phone: '',
+        email: '',
+        message: ''
+      });
+
+    } catch (noCorsError) {
+      console.error('Ошибка отправки с no-cors:', noCorsError);
+      toast({
+        title: "Ошибка отправки!",
+        description: "Не удалось отправить заявку. Пожалуйста, попробуйте еще раз или свяжитесь с нами напрямую.",
+        variant: "destructive",
+      });
+    }
+  }
+};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
