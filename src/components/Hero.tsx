@@ -25,13 +25,25 @@ export const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#FFE8B6] via-[#FFBD69] to-[#FFBD69] overflow-hidden">
-      {/* Background parallax effect */}
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center bg-fixed opacity-20"></div>
+      {/* Background with children learning English theme */}
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2022&q=80')] bg-cover bg-center bg-fixed opacity-25"></div>
       
-      {/* Floating elements */}
-      <div className="absolute top-20 left-10 w-16 h-16 bg-yellow-300 rounded-full opacity-60 animate-bounce"></div>
-      <div className="absolute top-40 right-20 w-12 h-12 bg-orange-400 rounded-full opacity-50 animate-pulse"></div>
-      <div className="absolute bottom-32 left-20 w-20 h-20 bg-blue-300 rounded-full opacity-40 animate-bounce" style={{animationDelay: '1s'}}></div>
+      {/* Educational elements floating animation */}
+      <div className="absolute top-20 left-10 w-16 h-16 bg-white/80 rounded-full flex items-center justify-center text-2xl animate-bounce">
+        📚
+      </div>
+      <div className="absolute top-40 right-20 w-12 h-12 bg-white/80 rounded-full flex items-center justify-center text-lg animate-pulse">
+        🎯
+      </div>
+      <div className="absolute bottom-32 left-20 w-20 h-20 bg-white/80 rounded-full flex items-center justify-center text-3xl animate-bounce" style={{animationDelay: '1s'}}>
+        🗣️
+      </div>
+      <div className="absolute top-60 left-1/3 w-14 h-14 bg-white/80 rounded-full flex items-center justify-center text-xl animate-pulse" style={{animationDelay: '2s'}}>
+        🎭
+      </div>
+      <div className="absolute bottom-40 right-32 w-16 h-16 bg-white/80 rounded-full flex items-center justify-center text-2xl animate-bounce" style={{animationDelay: '0.5s'}}>
+        🎮
+      </div>
 
       <div className="container mx-auto px-4 text-center relative z-10 pt-20">
         <div className="max-w-4xl mx-auto">
