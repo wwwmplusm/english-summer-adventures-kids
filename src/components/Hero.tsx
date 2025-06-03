@@ -25,44 +25,6 @@ export const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#FFEAD0] via-[#FFD4A3] to-[#FFA500] overflow-hidden">
-      {/* English learning themed decorative elements */}
-      <div className="absolute top-16 left-8 text-6xl opacity-25 font-bold text-amber-700 rotate-12">
-        ABC
-      </div>
-      <div className="absolute top-32 right-12 text-4xl opacity-30 font-semibold text-orange-800 -rotate-12">
-        Hello!
-      </div>
-      <div className="absolute bottom-20 left-12 text-5xl opacity-25 font-bold text-amber-700 rotate-6">
-        Cat
-      </div>
-      <div className="absolute top-1/2 left-4 text-3xl opacity-20 font-medium text-orange-900 -rotate-45">
-        Book
-      </div>
-      <div className="absolute bottom-32 right-16 text-4xl opacity-30 font-semibold text-orange-800 rotate-15">
-        Fun!
-      </div>
-      <div className="absolute top-24 left-1/3 text-3xl opacity-25 font-medium text-amber-700">
-        🇬🇧
-      </div>
-      <div className="absolute bottom-40 left-1/4 text-3xl opacity-25 font-medium text-amber-700">
-        🇺🇸
-      </div>
-      <div className="absolute top-1/3 right-8 text-4xl opacity-20 font-bold text-orange-900 rotate-12">
-        Dog
-      </div>
-      <div className="absolute bottom-1/3 left-16 text-3xl opacity-25 font-semibold text-amber-800 -rotate-6">
-        Play
-      </div>
-      <div className="absolute top-40 right-1/3 text-2xl opacity-30 font-medium text-orange-800">
-        📚
-      </div>
-      <div className="absolute bottom-24 right-8 text-2xl opacity-30 font-medium text-orange-800">
-        ✏️
-      </div>
-      <div className="absolute top-2/3 left-1/3 text-3xl opacity-20 font-bold text-amber-900 rotate-8">
-        Sun
-      </div>
-
       <div className="container mx-auto px-4 text-center relative z-10 pt-20">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#1C1C1E] leading-tight">
