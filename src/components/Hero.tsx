@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 
@@ -24,30 +23,27 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#FFF4E6] via-[#FFE8CC] to-[#FFDDB3] overflow-hidden">
-      {/* Background with English learning theme */}
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544717297-fa95b6ee9643?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80')] bg-cover bg-center bg-fixed opacity-15"></div>
-      
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#FFE5B4] via-[#FFCC80] to-[#FFB74D] overflow-hidden">
       {/* English learning themed decorative elements */}
-      <div className="absolute top-16 left-8 text-6xl opacity-20 font-bold text-orange-400 rotate-12">
+      <div className="absolute top-16 left-8 text-6xl opacity-20 font-bold text-orange-600 rotate-12">
         ABC
       </div>
-      <div className="absolute top-32 right-12 text-4xl opacity-25 font-semibold text-orange-500 -rotate-12">
+      <div className="absolute top-32 right-12 text-4xl opacity-25 font-semibold text-orange-700 -rotate-12">
         Hello!
       </div>
-      <div className="absolute bottom-20 left-12 text-5xl opacity-20 font-bold text-orange-400 rotate-6">
+      <div className="absolute bottom-20 left-12 text-5xl opacity-20 font-bold text-orange-600 rotate-6">
         123
       </div>
-      <div className="absolute top-1/2 left-4 text-3xl opacity-15 font-medium text-orange-600 -rotate-45">
+      <div className="absolute top-1/2 left-4 text-3xl opacity-15 font-medium text-orange-800 -rotate-45">
         Yes/No
       </div>
-      <div className="absolute bottom-32 right-16 text-4xl opacity-25 font-semibold text-orange-500 rotate-15">
+      <div className="absolute bottom-32 right-16 text-4xl opacity-25 font-semibold text-orange-700 rotate-15">
         Fun!
       </div>
-      <div className="absolute top-24 left-1/3 text-2xl opacity-20 font-medium text-orange-400">
+      <div className="absolute top-24 left-1/3 text-2xl opacity-20 font-medium text-orange-600">
         🇬🇧
       </div>
-      <div className="absolute bottom-40 left-1/4 text-2xl opacity-20 font-medium text-orange-400">
+      <div className="absolute bottom-40 left-1/4 text-2xl opacity-20 font-medium text-orange-600">
         🇺🇸
       </div>
 
