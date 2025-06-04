@@ -21,18 +21,18 @@ export const ComparisonTable = () => {
           <div className="w-full overflow-x-auto">
             <Card className="overflow-hidden shadow-2xl border-0 w-full">
               <CardHeader className="bg-gradient-to-r from-[#FF6B00] to-orange-500 text-white p-0">
-                <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center p-3 sm:p-4 md:p-6 relative pb-8 sm:pb-10 md:pb-12">
+                <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center p-3 sm:p-4 md:p-6">
                   <div className="font-semibold text-xs sm:text-sm md:text-lg">Критерий</div>
-                  <div className="relative">
+                  <div className="flex flex-col items-center">
                     <div className="font-bold text-sm sm:text-lg md:text-xl mb-2">🧡 НАШ ИНТЕНСИВ</div>
-                    <Badge className="absolute -bottom-2 sm:-bottom-3 md:-bottom-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black text-xs font-bold px-2 sm:px-3 py-1">
+                    <Badge className="bg-yellow-400 text-black text-xs font-bold px-2 sm:px-3 py-1">
                       Лучший выбор
                     </Badge>
                   </div>
                   <div className="font-semibold text-xs sm:text-sm md:text-lg">🙄 Обычный репетитор</div>
                 </div>
               </CardHeader>
-              <CardContent className="p-0 mt-2 sm:mt-4 md:mt-6">
+              <CardContent className="p-0 mt-4 sm:mt-6 md:mt-8">
                 <div className="grid grid-cols-3 gap-1 sm:gap-2 md:gap-4 p-2 sm:p-3 md:p-4 text-center items-center border-b">
                   <div className="font-medium text-left text-xs sm:text-sm md:text-base">Цена за урок</div>
                   <div className="bg-orange-50 rounded-lg p-1 sm:p-2 md:p-3">
