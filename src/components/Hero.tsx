@@ -38,7 +38,7 @@ export const Hero = () => {
       <div className="container mx-auto px-4 text-center relative z-10 pt-16 sm:pt-20">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 text-white leading-tight drop-shadow-lg">
-            Лето с пользой: погружение в язык за 8 недель
+            Онлайн интенсив английского: лето с пользой за 8 недель
           </h1>
           
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 leading-relaxed drop-shadow-md px-2">

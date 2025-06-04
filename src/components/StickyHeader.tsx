@@ -28,9 +28,9 @@ export const StickyHeader = () => {
     }`}>
       <div className="container mx-auto px-4 py-2 sm:py-3 flex items-center justify-between">
         <div className="font-bold text-base sm:text-lg lg:text-xl text-gray-800 flex-shrink-0">
-          <span className="text-[#FF6B00]">Интенсив</span> 
-          <span className="hidden sm:inline"> по английскому</span>
-          <span className="sm:hidden"> по англ.</span>
+          <span className="text-[#FF6B00]">Онлайн</span> 
+          <span className="hidden sm:inline"> интенсив английского</span>
+          <span className="sm:hidden"> англ.</span>
         </div>
         <Button 
           onClick={handleDiagnostic}

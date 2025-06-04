@@ -58,7 +58,7 @@ export const Footer = () => {
         <div className="border-t border-gray-700 pt-8 text-center">
           <div className="mb-4">
             <h4 className="font-bold text-xl text-[#FF6B00] mb-2">
-              Летний интенсив английского для детей
+              Онлайн интенсив английского для детей
             </h4>
             <p className="text-gray-400">
               Онлайн-обучение английскому языку детей 8-11 лет в малых группах
