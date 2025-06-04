@@ -124,7 +124,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <StickyHeader />
       <Hero />
       <KeyInfoSection />

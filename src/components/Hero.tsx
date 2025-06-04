@@ -47,18 +47,18 @@ export const Hero = () => {
 
           {/* Компактная информационная карточка */}
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-8 sm:mb-12 shadow-xl max-w-2xl mx-auto">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-gray-700">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-gray-700">
+              <div className="flex items-center gap-2 text-center sm:text-left">
+                <div className="w-3 h-3 bg-green-500 rounded-full flex-shrink-0"></div>
                 <span className="font-medium text-sm sm:text-base">Живые занятия online</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
-                <span className="font-medium text-sm sm:text-base">2 урока в неделю</span>
+              <div className="flex items-center gap-2 text-center sm:text-left">
+                <div className="w-3 h-3 bg-orange-500 rounded-full flex-shrink-0"></div>
+                <span className="font-medium text-sm sm:text-base">2 урока в неделю (55 мин) + ДЗ</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                <span className="font-medium text-sm sm:text-base">Первый урок бесплатно</span>
+              <div className="flex items-center gap-2 text-center sm:text-left">
+                <div className="w-3 h-3 bg-blue-500 rounded-full flex-shrink-0"></div>
+                <span className="font-medium text-sm sm:text-base">Первый урок бесплатно!</span>
               </div>
             </div>
           </div>
@@ -66,7 +66,7 @@ export const Hero = () => {
           <div className="flex flex-col gap-4 justify-center items-center">
             <Button 
               onClick={handleDiagnostic}
-              className="btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+              className="btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto max-w-md"
               size="lg"
             >
               Получить бесплатный урок
@@ -74,7 +74,7 @@ export const Hero = () => {
             <Button 
               onClick={scrollToProgram}
               variant="outline"
-              className="border-2 border-white bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+              className="border-2 border-white bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto max-w-md"
               size="lg"
             >
               Смотреть программу
