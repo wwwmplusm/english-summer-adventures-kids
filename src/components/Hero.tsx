@@ -37,59 +37,55 @@ export const Hero = () => {
 
       <div className="container mx-auto px-4 text-center relative z-10 pt-16 sm:pt-20">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 text-white leading-tight drop-shadow-lg">
-            Онлайн интенсив английского: лето с пользой за 8 недель
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8 text-white leading-tight drop-shadow-lg">
+            Онлайн интенсив английского
           </h1>
           
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 leading-relaxed drop-shadow-md px-2">
-            2 урока в неделю по 55 минут + домашнее задание · вт и чт в 12:00 (МСК)
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 sm:mb-12 leading-relaxed drop-shadow-md">
+            8 недель летнего обучения для детей 8-11 лет
           </p>
 
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8 shadow-xl">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-gray-700">
+          {/* Компактная информационная карточка */}
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-8 sm:mb-12 shadow-xl max-w-2xl mx-auto">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-gray-700">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                 <span className="font-medium text-sm sm:text-base">Живые занятия online</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                <span className="font-medium text-sm sm:text-base">Возраст 8-11 лет</span>
+                <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
+                <span className="font-medium text-sm sm:text-base">2 урока в неделю</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
-                <span className="font-medium text-sm sm:text-base">Игровой формат</span>
+                <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                <span className="font-medium text-sm sm:text-base">Первый урок бесплатно</span>
               </div>
             </div>
           </div>
 
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8 shadow-lg">
-            <p className="text-sm sm:text-base md:text-lg text-gray-700 font-medium leading-relaxed">
-              Запишитесь на первое бесплатное занятие и получите персональный план занятий на всё лето — без обязательств
-            </p>
-          </div>
-
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-8 sm:mb-12 shadow-lg">
-            <p className="text-sm sm:text-base md:text-lg text-gray-700 font-medium leading-relaxed">
-              Набор идёт в две группы: 8–9 лет и 10–11 лет. Точное распределение делаем на первом бесплатном уроке.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-4 justify-center items-center mb-8 sm:mb-12">
+          <div className="flex flex-col gap-4 justify-center items-center">
             <Button 
               onClick={handleDiagnostic}
-              className="btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+              className="btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
               size="lg"
             >
-              Получить бесплатный урок и план
+              Получить бесплатный урок
             </Button>
             <Button 
               onClick={scrollToProgram}
               variant="outline"
-              className="border-2 border-white bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+              className="border-2 border-white bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 sm:px-12 py-4 sm:py-5 text-lg sm:text-xl font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
               size="lg"
             >
               Смотреть программу
             </Button>
+          </div>
+
+          {/* Дополнительная информация - менее заметная */}
+          <div className="mt-12 sm:mt-16">
+            <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
+              Расписание: вторник и четверг в 12:00 (МСК) · Группы 8-9 и 10-11 лет
+            </p>
           </div>
         </div>
       </div>

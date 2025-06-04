@@ -12,6 +12,62 @@ import { StickyHeader } from '@/components/StickyHeader';
 import { BottomBar } from '@/components/BottomBar';
 import { SectionCTA } from '@/components/SectionCTA';
 
+// Новая секция с ключевой информацией
+const KeyInfoSection = () => {
+  const handleDiagnostic = () => {
+    document.getElementById('diagnostic')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <section className="py-12 sm:py-16 bg-gradient-to-br from-blue-50 to-orange-50">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg">
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-800">
+                Что вас ждет?
+              </h3>
+              <p className="text-gray-700 mb-6 leading-relaxed">
+                Запишитесь на первое бесплатное занятие и получите персональный план занятий на всё лето — без обязательств.
+              </p>
+              <button 
+                onClick={handleDiagnostic}
+                className="bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
+              >
+                Получить план обучения
+              </button>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg">
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-800">
+                Формат занятий
+              </h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Живые онлайн-уроки по 55 минут</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Мини-группы до 4 детей</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Игровые методики обучения</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0"></div>
+                  <span>Домашние задания 15-20 минут</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Index = () => {
   useEffect(() => {
     // Принудительно прокручиваем к верху страницы при загрузке
@@ -68,22 +124,18 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <StickyHeader />
-      <main>
-        <Hero />
-        <ComparisonTable />
-        <SectionCTA />
-        <ProgramTimeline />
-        <SectionCTA />
-        <Testimonials />
-        <Pricing />
-        <SectionCTA />
-        <FAQ />
-        <SectionCTA />
-        <DiagnosticForm />
-        <FinalCTA />
-      </main>
+      <Hero />
+      <KeyInfoSection />
+      <ComparisonTable />
+      <ProgramTimeline />
+      <Testimonials />
+      <Pricing />
+      <FAQ />
+      <DiagnosticForm />
+      <SectionCTA />
+      <FinalCTA />
       <Footer />
       <BottomBar />
     </div>
