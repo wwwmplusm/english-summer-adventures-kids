@@ -632,9 +632,16 @@ const handleSubmit = async () => {
                 <Button
                   onClick={handleSubmit}
                   disabled={!isFormValid() || isSubmitting}
-                  className="w-full mt-8 btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 text-lg font-bold transition-all duration-500 animate-fade-in disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full mt-6 sm:mt-8 btn-primary bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 sm:py-4 text-sm sm:text-base lg:text-lg font-bold transition-all duration-500 animate-fade-in disabled:opacity-50 disabled:cursor-not-allowed leading-tight"
                 >
-                  {isSubmitting ? 'Отправляем...' : 'Получить бесплатный урок и план'}
+                  {isSubmitting ? (
+                    <span>Отправляем...</span>
+                  ) : (
+                    <>
+                      <span className="hidden sm:inline">Получить бесплатный урок и план</span>
+                      <span className="sm:hidden">Получить бесплатный урок</span>
+                    </>
+                  )}
                 </Button>
               )}
             </CardContent>

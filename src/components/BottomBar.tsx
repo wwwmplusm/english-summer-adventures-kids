@@ -13,12 +13,13 @@ export const BottomBar = () => {
   };
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 z-40 shadow-lg">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-3 sm:p-4 z-40 shadow-lg">
       <Button 
         onClick={handleDiagnostic}
-        className="btn-primary w-full bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 rounded-lg font-semibold text-lg"
+        className="btn-primary w-full bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-3 rounded-lg font-semibold text-sm sm:text-base leading-tight"
       >
-        Получить бесплатный урок и план
+        <span className="hidden xs:inline">Получить бесплатный урок и план</span>
+        <span className="xs:hidden">Бесплатный урок</span>
       </Button>
     </div>
   );
