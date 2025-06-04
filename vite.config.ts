@@ -5,8 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Для GitHub Pages нужно указать base path
-  base: process.env.NODE_ENV === 'production' ? '/english-summer-adventures-kids/' : '/',
+  // Для Vercel используем корневой путь
+  base: '/',
   server: {
     host: "::",
     port: 8080,
