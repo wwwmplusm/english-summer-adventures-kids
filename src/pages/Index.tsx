@@ -25,10 +25,10 @@ const KeyInfoSection = () => {
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
             <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg">
               <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-800">
-                Что вас ждет?
+                🎯 Что получит ваш ребенок?
               </h3>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Запишитесь на первое бесплатное занятие и получите персональный план занятий на всё лето — без обязательств.
+                Запишитесь на первое бесплатное занятие и получите персональный план обучения — без обязательств. Узнайте текущий уровень и индивидуальные потребности.
               </p>
               <button 
                 onClick={handleDiagnostic}
@@ -40,7 +40,7 @@ const KeyInfoSection = () => {
 
             <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg">
               <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-800">
-                Формат занятий
+                📅 Как проходят занятия
               </h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-3">
@@ -49,15 +49,15 @@ const KeyInfoSection = () => {
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Мини-группы до 4 детей</span>
+                  <span>Мини-группы до 4 детей для активного общения</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Игровые методики обучения</span>
+                  <span>Интерактивные игры и современные технологии</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Домашние задания 15-20 минут</span>
+                  <span>Короткие домашние задания 15-20 минут</span>
                 </li>
               </ul>
             </div>

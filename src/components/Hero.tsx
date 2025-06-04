@@ -50,11 +50,11 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-gray-700">
               <div className="flex items-center gap-2 text-center sm:text-left">
                 <div className="w-3 h-3 bg-green-500 rounded-full flex-shrink-0"></div>
-                <span className="font-medium text-sm sm:text-base">Живые занятия online</span>
+                <span className="font-medium text-sm sm:text-base">Возраст 8-11 лет</span>
               </div>
               <div className="flex items-center gap-2 text-center sm:text-left">
                 <div className="w-3 h-3 bg-orange-500 rounded-full flex-shrink-0"></div>
-                <span className="font-medium text-sm sm:text-base">2 урока в неделю (55 мин) + ДЗ</span>
+                <span className="font-medium text-sm sm:text-base">Игровой формат</span>
               </div>
               <div className="flex items-center gap-2 text-center sm:text-left">
                 <div className="w-3 h-3 bg-blue-500 rounded-full flex-shrink-0"></div>
