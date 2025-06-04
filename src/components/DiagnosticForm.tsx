@@ -336,44 +336,44 @@ const handleSubmit = async () => {
 };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50" id="diagnostic">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-blue-50 to-purple-50" id="diagnostic">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-gray-800 leading-tight">
             Записаться на бесплатный урок
           </h2>
-          <p className="text-xl text-gray-600 mb-4">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-3 sm:mb-4 px-2">
             Узнайте уровень английского вашего ребёнка за 30 минут — бесплатно!
           </p>
-          <p className="text-lg text-[#FF6B00] font-semibold">
+          <p className="text-sm sm:text-base lg:text-lg text-[#FF6B00] font-semibold px-2">
             🎁 Диагностика + персональные рекомендации для обучения
           </p>
         </div>
 
         <div className="max-w-md mx-auto">
           <Card className="border-0 shadow-2xl">
-            <CardHeader className="bg-gradient-to-r from-[#FF6B00] to-orange-500 text-white text-center">
-              <CardTitle className="text-2xl font-bold">Заполните форму</CardTitle>
+            <CardHeader className="bg-gradient-to-r from-[#FF6B00] to-orange-500 text-white text-center p-4 sm:p-6">
+              <CardTitle className="text-lg sm:text-xl lg:text-2xl font-bold">Заполните форму</CardTitle>
               
               {/* Progress Bar */}
-              <div className="mt-4">
+              <div className="mt-3 sm:mt-4">
                 <div className="w-full bg-[#E0E0E0] rounded-full h-2">
                   <div 
                     className="bg-[#FFBD69] h-2 rounded-full transition-all duration-300 ease-out"
                     style={{ width: getProgressWidth() }}
                   ></div>
                 </div>
-                <p className="text-white/80 text-sm mt-2">Шаг {currentStep} из {TOTAL_STEPS}</p>
+                <p className="text-white/80 text-xs sm:text-sm mt-2">Шаг {currentStep} из {TOTAL_STEPS}</p>
               </div>
             </CardHeader>
-            <CardContent className="p-8">
-              <div className="space-y-6">
+            <CardContent className="p-4 sm:p-6 lg:p-8">
+              <div className="space-y-4 sm:space-y-6">
                 {/* Шаг 1: Имя родителя */}
                 {shouldShowField(1) && (
                   <div className={`transition-all duration-500 ${currentStep === 1 ? 'animate-fade-in' : ''}`}>
                     <Label 
                       htmlFor="parentName" 
-                      className={`text-base font-medium cursor-pointer ${currentStep > 1 ? 'hover:text-[#FF6B00]' : ''}`}
+                      className={`text-sm sm:text-base font-medium cursor-pointer ${currentStep > 1 ? 'hover:text-[#FF6B00]' : ''}`}
                       onClick={() => goToStep(1)}
                     >
                       Имя родителя * {isFieldCompleted(1) && (
@@ -389,7 +389,7 @@ const handleSubmit = async () => {
                       onBlur={() => handleTextBlur(1)}
                       onKeyPress={(e) => handleKeyPress(e, 1)}
                       onFocus={() => goToStep(1)}
-                      className="mt-2 text-lg p-4"
+                      className="mt-2 text-sm sm:text-base lg:text-lg p-3 sm:p-4"
                       readOnly={!isFieldEditable(1)}
                       required
                     />
@@ -401,7 +401,7 @@ const handleSubmit = async () => {
                   <div className={`transition-all duration-500 ${currentStep === 2 ? 'animate-fade-in' : ''}`}>
                     <Label 
                       htmlFor="childAge" 
-                      className={`text-base font-medium cursor-pointer ${currentStep > 2 ? 'hover:text-[#FF6B00]' : ''}`}
+                      className={`text-sm sm:text-base font-medium cursor-pointer ${currentStep > 2 ? 'hover:text-[#FF6B00]' : ''}`}
                       onClick={() => goToStep(2)}
                     >
                       Возраст ребёнка * {isFieldCompleted(2) && (
@@ -419,7 +419,7 @@ const handleSubmit = async () => {
                       onBlur={() => handleTextBlur(2)}
                       onKeyPress={(e) => handleKeyPress(e, 2)}
                       onFocus={() => goToStep(2)}
-                      className="mt-2 text-lg p-4"
+                      className="mt-2 text-sm sm:text-base lg:text-lg p-3 sm:p-4"
                       readOnly={!isFieldEditable(2)}
                       required
                     />
@@ -430,7 +430,7 @@ const handleSubmit = async () => {
                 {shouldShowField(3) && (
                   <div className={`transition-all duration-500 ${currentStep === 3 ? 'animate-fade-in' : ''}`}>
                     <Label 
-                      className={`text-base font-medium cursor-pointer ${currentStep > 3 ? 'hover:text-[#FF6B00]' : ''}`}
+                      className={`text-sm sm:text-base font-medium cursor-pointer ${currentStep > 3 ? 'hover:text-[#FF6B00]' : ''}`}
                       onClick={() => goToStep(3)}
                     >
                       Класс * {isFieldCompleted(3) && (
@@ -449,7 +449,7 @@ const handleSubmit = async () => {
                       }}
                     >
                       <SelectTrigger 
-                        className="mt-2 text-lg p-4"
+                        className="mt-2 text-sm sm:text-base lg:text-lg p-3 sm:p-4"
                         onClick={() => {
                           goToStep(3);
                           // Дополнительная проверка: если уже есть значение, но мы на 3 шаге
@@ -520,7 +520,7 @@ const handleSubmit = async () => {
                   <div className={`transition-all duration-500 ${currentStep === 4 ? 'animate-fade-in' : ''}`}>
                     <Label 
                       htmlFor="phone" 
-                      className={`text-base font-medium cursor-pointer ${currentStep > 4 ? 'hover:text-[#FF6B00]' : ''}`}
+                      className={`text-sm sm:text-base font-medium cursor-pointer ${currentStep > 4 ? 'hover:text-[#FF6B00]' : ''}`}
                       onClick={() => goToStep(4)}
                     >
                       Телефон * {isFieldCompleted(4) && (
@@ -536,7 +536,7 @@ const handleSubmit = async () => {
                       onBlur={handlePhoneBlur}
                       onKeyPress={(e) => handleKeyPress(e, 4)}
                       onFocus={() => goToStep(4)}
-                      className="mt-2 text-lg p-4"
+                      className="mt-2 text-sm sm:text-base lg:text-lg p-3 sm:p-4"
                       readOnly={!isFieldEditable(4)}
                       required
                     />
@@ -547,7 +547,7 @@ const handleSubmit = async () => {
                 {shouldShowField(5) && (
                   <div className={`transition-all duration-500 ${currentStep === 5 ? 'animate-fade-in' : ''}`}>
                     <Label 
-                      className={`text-base font-medium cursor-pointer ${currentStep > 5 ? 'hover:text-[#FF6B00]' : ''}`}
+                      className={`text-sm sm:text-base font-medium cursor-pointer ${currentStep > 5 ? 'hover:text-[#FF6B00]' : ''}`}
                       onClick={() => goToStep(5)}
                     >
                       Способ связи * {isFieldCompleted(5) && (
