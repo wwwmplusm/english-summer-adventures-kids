@@ -38,7 +38,7 @@ export const Hero = () => {
       <div className="container mx-auto px-4 text-center relative z-10 pt-16 sm:pt-20">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8 text-white leading-tight drop-shadow-lg">
-            Онлайн интенсив английского
+            Летний онлайн-курс английского
           </h1>
           
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 sm:mb-12 leading-relaxed drop-shadow-md">
@@ -84,7 +84,7 @@ export const Hero = () => {
           {/* Дополнительная информация - менее заметная */}
           <div className="mt-12 sm:mt-16">
             <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto">
-              Расписание: вторник и четверг в 12:00 (МСК) · Группы 8-9 и 10-11 лет
+              Формируем утренние и дневные группы для детей 8-9 и 10-11 лет
             </p>
           </div>
         </div>

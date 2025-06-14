@@ -2,46 +2,26 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 
 export const ProgramTimeline = () => {
-  const weeks = [
+  const courseContent = [
     {
-      week: 1,
-      title: "School & Classroom",
-      grammar: "Ребёнок сможет назвать школьные предметы, попросить нужную вещь на уроке (ручку, карандаш) и описать, что находится в классе."
+      weeks: "1–2",
+      topic: "Мой класс и день",
+      result: "Попросить/дать предмет (Can I have…?), назвать 6 школьных вещей и 3 ежедневных действия с временем «о'clock»."
     },
     {
-      week: 2,
-      title: "Daily Routines & Time",
-      grammar: "Научится рассказывать о своём распорядке дня (когда встаёт, завтракает, идёт в школу) и называть время простых действий."
+      weeks: "3–4",
+      topic: "Еда и вкусы",
+      result: "Сказать 'I like / don't like' о 3-4 продуктах, вежливо попросить напиток (Some juice, please)."
     },
     {
-      week: 3,
-      title: "Seasons & Weather",
-      grammar: "Сможет описать погоду за окном, назвать любимое время года и сказать, во что он одет или что нужно надеть."
+      weeks: "5–6",
+      topic: "Животные и сравнения",
+      result: "Описать животное (It can run), сравнить два, используя простую сравнительную конструкцию (A cheetah is faster than a turtle)."
     },
     {
-      week: 4,
-      title: "Food & Healthy Habits",
-      grammar: "Ребёнок расскажет о своих любимых и нелюбимых продуктах, сможет попросить еду или напиток и поговорить о здоровом питании."
-    },
-    {
-      week: 5,
-      title: "Wild & Farm Animals",
-      grammar: "Научится называть разных животных, описывать, что они умеют делать (прыгать, бегать), и сравнивать их по размеру или скорости."
-    },
-    {
-      week: 6,
-      title: "My House & Furniture",
-      grammar: "Сможет описать свой дом или комнату, рассказать, какая там есть мебель и где находятся разные предметы."
-    },
-    {
-      week: 7,
-      title: "Hobbies & Sports",
-      grammar: "Ребёнок расскажет о своих увлечениях и любимых видах спорта, сможет задать вопросы о хобби друга и сказать, как часто он чем-то занимается."
-    },
-    {
-      week: 8,
-      title: "Holidays & Traditions",
-      grammar: "Поговорит о прошедших праздниках, поделится впечатлениями и расскажет о планах на будущие каникулы или выходные."
+      weeks: "7–8",
+      topic: "Дом, погода и одежда",
+      result: "Описать свою комнату (назвав 3-4 предмета), прокомментировать погоду за окном и сказать, какую одежду следует надеть."
     }
   ];
 
@@ -61,21 +41,21 @@ export const ProgramTimeline = () => {
                 <table className="w-full">
                   <thead className="bg-gradient-to-r from-purple-500 to-blue-500 text-white">
                     <tr>
-                      <th className="p-4 text-left font-bold">Неделя</th>
+                      <th className="p-4 text-left font-bold">Недели</th>
                       <th className="p-4 text-left font-bold">Темы</th>
                       <th className="p-4 text-left font-bold">Что научится делать ребёнок</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {weeks.map((week, index) => (
+                    {courseContent.map((item, index) => (
                       <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                         <td className="p-4">
-                          <div className="bg-gradient-to-r from-purple-500 to-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
-                            {week.week}
+                          <div className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-3 py-2 rounded-lg flex items-center justify-center font-bold text-sm min-w-[60px]">
+                            {item.weeks}
                           </div>
                         </td>
-                        <td className="p-4 font-semibold text-gray-800">{week.title}</td>
-                        <td className="p-4 text-gray-600 text-sm">{week.grammar}</td>
+                        <td className="p-4 font-semibold text-gray-800">{item.topic}</td>
+                        <td className="p-4 text-gray-600 text-sm">{item.result}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -85,7 +65,7 @@ export const ProgramTimeline = () => {
           </Card>
           
           <div className="text-center text-sm text-gray-500 mt-4">
-            *2 живых урока + домашнее задание каждую неделю
+            *2 урока (55 мин) + увлекательные задания для закрепления каждую неделю
           </div>
         </div>
       </div>

@@ -9,10 +9,10 @@ export const ComparisonTable = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-gray-800 leading-tight">
-            Почему интенсив — лучший выбор этим летом
+            Почему наш курс — лучший выбор этим летом
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-gray-700 font-medium bg-blue-50 rounded-lg p-3 sm:p-4 max-w-2xl mx-auto">
-            Курс подходит только детям, освоившим 1 класс школьной программы
+            Наш курс идеально подходит для детей 8-11 лет. Уровень знаний мы определим на бесплатном пробном уроке и подберем подходящую группу
           </p>
         </div>
 
@@ -24,12 +24,12 @@ export const ComparisonTable = () => {
                 <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center p-3 sm:p-4 md:p-6">
                   <div className="font-semibold text-xs sm:text-sm md:text-lg">Критерий</div>
                   <div className="flex flex-col items-center">
-                    <div className="font-bold text-sm sm:text-lg md:text-xl mb-2">🧡 НАШ ИНТЕНСИВ</div>
+                    <div className="font-bold text-sm sm:text-lg md:text-xl mb-2">🧡 НАШ ЛЕТНИЙ КУРС</div>
                     <Badge className="bg-yellow-400 text-black text-xs font-bold px-2 sm:px-3 py-1">
                       Лучший выбор
                     </Badge>
                   </div>
-                  <div className="font-semibold text-xs sm:text-sm md:text-lg">🙄 Обычный репетитор</div>
+                  <div className="font-semibold text-xs sm:text-sm md:text-lg">😴 Скучные уроки по учебнику</div>
                 </div>
               </CardHeader>
               <CardContent className="p-0 mt-4 sm:mt-6 md:mt-8">
@@ -46,23 +46,17 @@ export const ComparisonTable = () => {
                   <div className="bg-orange-50 rounded-lg p-1 sm:p-2 md:p-3">
                     <div className="text-xs sm:text-sm font-medium">Играем, шутим, двигаемся, используем технологии</div>
                   </div>
-                  <div className="text-gray-600 text-xs sm:text-sm">Объяснения и задания</div>
+                  <div className="text-gray-600 text-xs sm:text-sm">Монотонное выполнение упражнений, зубрежка правил</div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-1 sm:gap-2 md:gap-4 p-2 sm:p-3 md:p-4 text-center items-center border-b">
-                  <div className="font-medium text-left text-xs sm:text-sm md:text-base">Формат общения</div>
-                  <div className="bg-orange-50 rounded-lg p-1 sm:p-2 md:p-3">
-                    <div className="text-xs sm:text-sm font-medium">Мини-группа из 4 детей: общение и взаимодействие</div>
-                  </div>
-                  <div className="text-gray-600 text-xs sm:text-sm">Один на один — меньше естественной речи</div>
-                </div>
+
 
                 <div className="grid grid-cols-3 gap-1 sm:gap-2 md:gap-4 p-2 sm:p-3 md:p-4 text-center items-center bg-gray-50 border-b">
                   <div className="font-medium text-left text-xs sm:text-sm md:text-base">Социализация</div>
                   <div className="bg-orange-50 rounded-lg p-1 sm:p-2 md:p-3">
-                    <div className="text-xs sm:text-sm font-medium">Ребёнок учится в команде, заводит друзей</div>
+                    <div className="text-xs sm:text-sm font-medium">Ребёнок учится в команде, заводит друзей, соревнуется</div>
                   </div>
-                  <div className="text-gray-600 text-xs sm:text-sm">Общается только со взрослым</div>
+                  <div className="text-gray-600 text-xs sm:text-sm">Нет командной работы и здоровой конкуренции</div>
                 </div>
 
                 <div className="grid grid-cols-3 gap-1 sm:gap-2 md:gap-4 p-2 sm:p-3 md:p-4 text-center items-center border-b">
@@ -78,7 +72,7 @@ export const ComparisonTable = () => {
                   <div className="bg-orange-50 rounded-lg p-1 sm:p-2 md:p-3">
                     <div className="text-xs sm:text-sm font-medium">Игры, песни, викторины и мини-проекты на каждом уроке</div>
                   </div>
-                  <div className="text-gray-600 text-xs sm:text-sm">Часто сухие упражнения и тесты</div>
+                  <div className="text-gray-600 text-xs sm:text-sm">В основном работа с текстом и тестами</div>
                 </div>
               </CardContent>
             </Card>

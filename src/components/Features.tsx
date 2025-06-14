@@ -37,7 +37,7 @@ export const Features = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Почему именно наш интенсив?
+            Почему именно наш летний курс?
           </h2>
         </div>
         

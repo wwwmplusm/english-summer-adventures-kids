@@ -58,7 +58,7 @@ export const Footer = () => {
         <div className="border-t border-gray-700 pt-8 text-center">
           <div className="mb-4">
             <h4 className="font-bold text-xl text-[#FF6B00] mb-2">
-              Онлайн интенсив английского для детей
+              Летний онлайн-курс английского для детей
             </h4>
             <p className="text-gray-400">
               Онлайн-обучение английскому языку детей 8-11 лет в малых группах
@@ -66,7 +66,7 @@ export const Footer = () => {
           </div>
           
           <div className="text-xs text-gray-500 leading-relaxed">
-            <p className="mb-2">© 2025 Летний интенсив английского. Все права защищены.</p>
+            <p className="mb-2">© 2025 Летний курс английского. Все права защищены.</p>
             <p>
               WhatsApp является продуктом компании Meta, которая признана экстремистской организацией и запрещена в Российской Федерации.
             </p>

@@ -8,7 +8,7 @@ export const SummerProgram = () => {
     {
       icon: Calendar,
       title: "24 занятия за 2 месяца",
-      description: "Интенсивная программа для быстрого прогресса"
+      description: "Структурированная программа для быстрого прогресса"
     },
     {
       icon: Users,
@@ -69,7 +69,7 @@ export const SummerProgram = () => {
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
                 <div className="text-3xl font-bold text-orange-600 mb-2">2</div>
-                <div className="text-gray-600">месяца интенсива</div>
+                <div className="text-gray-600">месяца летнего курса</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-orange-600 mb-2">24</div>

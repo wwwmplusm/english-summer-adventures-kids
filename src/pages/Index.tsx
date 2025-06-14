@@ -57,7 +57,7 @@ const KeyInfoSection = () => {
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Короткие домашние задания 15-20 минут</span>
+                  <span>Небольшие творческие задания для закрепления (по желанию)</span>
                 </li>
               </ul>
             </div>
