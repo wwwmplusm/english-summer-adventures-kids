@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Calendar, Users, Globe, Sparkles } from 'lucide-react';
@@ -7,8 +6,8 @@ export const SummerProgram = () => {
   const benefits = [
     {
       icon: Calendar,
-      title: "24 занятия за 2 месяца",
-      description: "Структурированная программа для быстрого прогресса"
+      title: "Структурированная программа",
+      description: "8-недельная программа для систематического изучения языка"
     },
     {
       icon: Users,
@@ -35,7 +34,7 @@ export const SummerProgram = () => {
             Идеальное лето для вашего ребенка!
           </h2>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            2 месяца увлекательного обучения английскому языку. 24 занятия, за которые мой ребенок 
+            2 месяца увлекательного обучения английскому языку. Интенсивная программа, за которую мой ребенок 
             избавится от стеснения в разговорах на английском, погрузится в языковую среду и будет получать удовольствие от процесса!
           </p>
         </div>
@@ -57,7 +56,7 @@ export const SummerProgram = () => {
           })}
         </div>
 
-        <Card className="border-0 shadow-xl bg-gradient-to-r from-orange-100 to-red-100">
+        <Card className="bg-gradient-to-r from-orange-100 to-red-100 border-0 shadow-xl">
           <CardContent className="p-8 text-center">
             <h3 className="text-2xl font-bold mb-4 text-gray-800">
               Превратите лето в время продуктивного развития!
@@ -68,12 +67,12 @@ export const SummerProgram = () => {
             </p>
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-orange-600 mb-2">2</div>
-                <div className="text-gray-600">месяца летнего курса</div>
+                <div className="text-3xl font-bold text-orange-600 mb-2">8</div>
+                <div className="text-gray-600">недель летнего курса</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-orange-600 mb-2">24</div>
-                <div className="text-gray-600">увлекательных занятия</div>
+                <div className="text-3xl font-bold text-orange-600 mb-2">2×</div>
+                <div className="text-gray-600">занятия в неделю</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-orange-600 mb-2">100%</div>

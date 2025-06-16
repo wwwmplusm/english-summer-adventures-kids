@@ -45,11 +45,11 @@ const KeyInfoSection = () => {
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Живые онлайн-уроки по 55 минут</span>
+                  <span>Живые онлайн-уроки полной продолжительности</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Мини-группы до 4 детей для активного общения</span>
+                  <span>Мини-группы для активного общения</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-[#FF6B00] rounded-full mt-2 flex-shrink-0"></div>

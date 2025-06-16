@@ -45,7 +45,7 @@ export const Pricing = () => {
               </Badge>
               <CardHeader className="bg-gradient-to-r from-[#FF6B00] to-orange-500 text-white p-4 sm:p-6">
                 <CardTitle className="text-xl sm:text-2xl font-bold">Весь курс</CardTitle>
-                <p className="text-white/90 text-sm sm:text-base">16 уроков (8 недель × 2)</p>
+                <p className="text-white/90 text-sm sm:text-base">Полная программа (8 недель)</p>
                 <p className="text-xs sm:text-sm text-white/80">скидка 25%</p>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 lg:p-8">
