@@ -42,15 +42,16 @@ export const FinalCTA = () => {
               className="btn-secondary bg-white hover:bg-gray-100 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
               style={{ color: '#FF6B00', fontWeight: 600 }}
               size="lg"
-            >
+              >
               Оплатить курс
             </Button>
             <Button 
               onClick={handleDiagnostic}
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-[#FF6B00] px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg font-semibold rounded-xl transition-all duration-300 w-full sm:w-auto"
+              className="btn-secondary bg-white hover:bg-gray-100 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+              style={{ color: '#FF6B00', fontWeight: 600 }}
               size="lg"
-            >
+              >
               Получить бесплатный урок и план
             </Button>
           </div>
