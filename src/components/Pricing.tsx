@@ -6,15 +6,6 @@ import { Check } from 'lucide-react';
 import { trackEvent } from "@/lib/analytics";
 
 export const Pricing = () => {
-  const handlePayment = (plan: string) => {
-    const utmParams = new URLSearchParams(window.location.search).toString();
-    window.open(`/payment?plan=${plan}${utmParams ? `&${utmParams}` : ''}`, '_blank');
-    
-    // Analytics
-    trackEvent.ym(88888888, 'Purchase', { plan });
-    trackEvent.vk('payment_click');
-  };
-
   const handleDiagnostic = () => {
     // Плавный скролл к форме заявки
     document.getElementById('diagnostic')?.scrollIntoView({ behavior: 'smooth' });
@@ -38,34 +29,34 @@ export const Pricing = () => {
 
         <div className="max-w-5xl mx-auto w-full">
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
-            {/* Весь курс */}
+            
+            {/* Тариф "Все включено" */}
             <Card className="border-0 shadow-2xl relative overflow-hidden w-full">
               <Badge className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-green-500 text-white font-bold px-2 sm:px-3 py-1 text-xs sm:text-sm">
-                ЭКОНОМИЯ 8 000 ₽
+                ЛУЧШАЯ ЦЕНА
               </Badge>
               <CardHeader className="bg-gradient-to-r from-[#FF6B00] to-orange-500 text-white p-4 sm:p-6">
-                <CardTitle className="text-xl sm:text-2xl font-bold">Весь курс</CardTitle>
-                <p className="text-white/90 text-sm sm:text-base">Полная программа (8 недель)</p>
-                <p className="text-xs sm:text-sm text-white/80">скидка 25%</p>
+                <CardTitle className="text-xl sm:text-2xl font-bold">Все включено</CardTitle>
+                <p className="text-white/90 text-sm sm:text-base">Полный курс (8 недель)</p>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 lg:p-8">
                 <div className="text-center mb-4 sm:mb-6">
                   <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#FF6B00] mb-2">23 990 ₽</div>
-                  <div className="text-gray-600 text-sm sm:text-base">1 490 ₽ за урок*</div>
+                  <div className="text-gray-600 text-sm sm:text-base">Всего 1 500 ₽ за урок</div>
                 </div>
                 
                 <div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                   <div className="flex items-center gap-2 sm:gap-3">
                     <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                    <span className="text-gray-700 text-sm sm:text-base">Максимальная экономия</span>
+                    <span className="text-gray-700 text-sm sm:text-base">Экономия 8 000 ₽</span>
                   </div>
                   <div className="flex items-center gap-2 sm:gap-3">
                     <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                    <span className="text-gray-700 text-sm sm:text-base">Гарантия результата</span>
+                    <span className="text-gray-700 text-sm sm:text-base">Гарантия полного погружения</span>
                   </div>
                   <div className="flex items-center gap-2 sm:gap-3">
                     <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                    <span className="text-gray-700 text-sm sm:text-base">Сертификат об окончании</span>
+                    <span className="text-gray-700 text-sm sm:text-base">Единый платеж на всё лето</span>
                   </div>
                   <div className="flex items-center gap-2 sm:gap-3">
                     <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
@@ -75,91 +66,66 @@ export const Pricing = () => {
 
                 <div className="space-y-2 sm:space-y-3">
                   <Button 
-                    onClick={() => handlePayment('full')}
+                    onClick={handleDiagnostic}
                     className="btn-primary w-full bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base lg:text-lg"
                   >
-                    Оплатить курс (23 990 ₽)
-                  </Button>
-                  
-                  <Button 
-                    onClick={handleDiagnostic}
-                    variant="outline"
-                    className="btn-primary w-full border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base"
-                  >
-                    <span className="hidden sm:inline">Получить бесплатный урок и персональный план</span>
-                    <span className="sm:hidden">Получить бесплатный урок</span>
+                    Выбрать этот тариф
                   </Button>
                 </div>
               </CardContent>
             </Card>
 
-            {/* По неделям */}
+            {/* Тариф "Гибкий старт" */}
             <Card className="border-0 shadow-xl w-full">
               <CardHeader className="bg-gradient-to-r from-blue-500 to-purple-500 text-white p-4 sm:p-6">
-                <CardTitle className="text-xl sm:text-2xl font-bold">По неделям</CardTitle>
-                <p className="text-white/90 text-sm sm:text-base">2 урока</p>
-                <p className="text-xs sm:text-sm text-white/80">гибко, оплачиваете каждую неделю</p>
+                <CardTitle className="text-xl sm:text-2xl font-bold">Гибкий старт</CardTitle>
+                <p className="text-white/90 text-sm sm:text-base">Предоплата по неделям</p>
               </CardHeader>
               <CardContent className="p-4 sm:p-6 lg:p-8">
                 <div className="text-center mb-4 sm:mb-6">
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-600 mb-2">3 990 ₽</div>
-                  <div className="text-gray-600 text-sm sm:text-base">1 995 ₽ за урок</div>
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-600 mb-2">3 980 ₽</div>
+                  <div className="text-gray-600 text-sm sm:text-base">в неделю (2 урока)</div>
                 </div>
                 
                 <div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                   <div className="flex items-center gap-2 sm:gap-3">
                     <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                    <span className="text-gray-700 text-sm sm:text-base">Гибкость оплаты</span>
+                    <span className="text-gray-700 text-sm sm:text-base">Идеально для летних поездок</span>
                   </div>
                   <div className="flex items-center gap-2 sm:gap-3">
                     <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                    <span className="text-gray-700 text-sm sm:text-base">Можно приостановить в любой момент</span>
+                    <span className="text-gray-700 text-sm sm:text-base">Управляйте расходами еженедельно</span>
                   </div>
                   <div className="flex items-center gap-2 sm:gap-3">
                     <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                    <span className="text-gray-700 text-sm sm:text-base">Платите только за посещения</span>
+                    <span className="text-gray-700 text-sm sm:text-base">Начните с небольшой суммы</span>
                   </div>
                 </div>
 
                 <div className="space-y-2 sm:space-y-3">
                   <Button 
-                    onClick={() => handlePayment('weekly')}
+                    onClick={handleDiagnostic}
                     className="btn-primary w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base lg:text-lg"
                   >
-                    Оплатить неделю (3 990 ₽)
-                  </Button>
-
-                  <Button 
-                    onClick={handleDiagnostic}
-                    className="btn-primary w-full bg-[#FF6B00] hover:bg-[#FF6B00]/90 text-white py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base lg:text-lg"
-                  >
-                    <span className="hidden sm:inline">Получить бесплатный урок и персональный план</span>
-                    <span className="sm:hidden">Получить бесплатный урок</span>
+                    Выбрать этот тариф
                   </Button>
                 </div>
               </CardContent>
             </Card>
           </div>
-
-          <div className="bg-gradient-to-r from-green-100 to-blue-100 rounded-2xl p-4 sm:p-6 text-center mb-3 sm:mb-4">
-            <Badge className="bg-green-500 text-white text-sm sm:text-base lg:text-lg font-bold px-3 sm:px-4 py-1 sm:py-2 mb-3 sm:mb-4">
-              ЛУЧШИЙ ВЫБОР
-            </Badge>
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2">
-              Весь курс = экономия 8 000 ₽
-            </h3>
-            <p className="text-gray-700 text-sm sm:text-base lg:text-lg">
-              При оплате всего курса вы экономите 25% и получаете максимальный результат для вашего ребёнка
-            </p>
+          
+          <div className="text-center mt-8">
+            <p className="text-lg text-gray-700 mb-4">Не уверены, что выбрать?</p>
+            <Button 
+              onClick={handleDiagnostic}
+              variant="outline"
+              className="btn-primary border-2 border-[#FF6B00] text-[#FF6B00] hover:bg-[#FF6B00] hover:text-white py-3 px-8 rounded-lg font-semibold text-base"
+            >
+              <span className="hidden sm:inline">Пройти бесплатную диагностику</span>
+              <span className="sm:hidden">Бесплатная диагностика</span>
+            </Button>
           </div>
 
-          <div className="text-center text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4">
-            *Цена 1 490 ₽ действует только при оплате всего курса целиком
-          </div>
-
-          <div className="text-center text-xs sm:text-sm text-gray-600">
-            При оплате по неделям действует предоплата: сумма вносится за предстоящую неделю вперёд.
-          </div>
         </div>
       </div>
     </section>
